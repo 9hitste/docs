@@ -1,0 +1,81 @@
+site_name: 9Hits Documentation
+site_url: https://docs.9hits.com/
+plugins:
+    - search
+markdown_extensions:
+    - toc:
+        permalink: "#"
+        # baselevel: 2
+    - admonition
+    - attr_list
+    - md_in_html
+    - pymdownx.superfences
+    - pymdownx.details
+    - abbr
+    - pymdownx.snippets
+    - pymdownx.tabbed:
+        alternate_style: true 
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
+    - tables
+theme: 
+    name: material
+    logo: imgs/logo.png
+    favicon: imgs/logo.png
+    features:
+        - navigation.instant
+        - navigation.tracking
+        - navigation.top
+        - content.tooltips
+        # - navigation.sections
+        # - navigation.tabs
+    palette: 
+        scheme: default
+        primary: deep orange
+        accent: orange
+    icon:
+        repo: fontawesome/brands/github
+        admonition:
+            note: octicons/tag-16
+            abstract: octicons/checklist-16
+            info: octicons/info-16
+            tip: octicons/squirrel-16
+            success: octicons/check-16
+            question: octicons/question-16
+            warning: octicons/alert-16
+            failure: octicons/x-circle-16
+            danger: octicons/zap-16
+            bug: octicons/bug-16
+            example: octicons/beaker-16
+            quote: octicons/quote-16
+extra_css:
+    - css/9hits.css
+repo_url: https://github.com/9hitste/docs
+nav:
+    - 'Getting Started': 'getting-started.md'
+    - '9Hits Application':
+        - 'Overview': '9hits-app/overview.md'
+        - 'Installation': '9hits-app/installation.md'
+        - 'Exchange Mode':
+            - 'Manage Campaign': '9hits-app/exchange/manage-campaign.md'
+            - 'Custom User-Agent': '9hits-app/exchange/user-agent.md'
+            - 'App Configuration': '9hits-app/exchange/app-config.md'
+        - 'Bot Mode':
+            - 'Configuration': '9hits-app/bot/configuration.md'
+            - 'Manage Campaign': '9hits-app/bot/manage-campaign.md'
+            - 'Manage User-Agent': '9hits-app/bot/user-agent.md'
+            - 'GEO Proxy list': '9hits-app/bot/geo-proxy.md'
+            - 'Custom Update': '9hits-app/bot/custom-update.md'
+        - 'Profile Mode': '9hits-app/profile-mode.md'
+    - 'Macros':
+        - 'Overview': 'macros/overview.md'
+        - 'Build-in Functions': 'macros/functions.md'
+    - 'API': 'api.md'
