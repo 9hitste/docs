@@ -9,3 +9,6 @@
 .txt-danger {
     color: #ff2a00
 }
+:root > * {
+    --md-typeset-a-color: #ff6e42;
+}

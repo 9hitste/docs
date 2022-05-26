@@ -40,7 +40,7 @@ theme:
     palette: 
         scheme: default
         primary: brown
-        accent: deep orange
+        accent: orange
     icon:
         repo: fontawesome/brands/github
         admonition:
