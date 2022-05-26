@@ -39,8 +39,8 @@ theme:
         # - navigation.tabs
     palette: 
         scheme: default
-        primary: deep orange
-        accent: orange
+        primary: brown
+        accent: deep orange
     icon:
         repo: fontawesome/brands/github
         admonition:
