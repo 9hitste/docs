@@ -1253,6 +1253,59 @@ Write text to a file.
     await WriteFile("C:\\test.txt", "World", "append");
     ```
 
+## GetDownloadedFiles
+!!! warning "Bot and Profile Mode only"
+Returns an array of downloaded filenames.
+
+???+ info "Syntax"
+    ``` js
+    await GetDownloadedFiles ();
+    ```
+???+ example "Example"
+    ``` js linenums="1"
+    const files = await GetDownloadedFiles();
+    ```
+
+## IsFileDownloaded
+!!! warning "Bot and Profile Mode only"
+Check if the given file has been downloaded.
+
+???+ info "Syntax"
+    ``` js
+    await IsFileDownloaded (fileName);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `fileName`       | Name of the file to check.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    const downloaded = await IsFileDownloaded("update.zip");
+    ```
+
+## SetUploadFileOrFolder
+!!! warning "Bot and Profile Mode only"
+Set the files will be selected when you click to a `Chose File` button on a web-page..
+
+???+ info "Syntax"
+    ``` js
+    SetUploadFileOrFolder (paths);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `paths`       | a path to file/folder or an array of paths.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    SetUploadFileOrFolder("C:\\test.txt");
+    SetUploadFileOrFolder("C:\\myfiles");
+    SetUploadFileOrFolder(["C:\\test_1.txt", "C:\\test_2.txt"]);
+    ```
+
 ## GetCurrentDir
 !!! warning "Bot and Profile Mode only"
 Returns the current path that 9Hits App is running.
