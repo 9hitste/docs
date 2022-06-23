@@ -31,6 +31,11 @@ You may have no problem on Windows, but on Linux you may need to install some re
     chmod -R 777 .
     chmod +x ./9HitsApp ; chmod +x ./9hits ; chmod +x ./browser/9hbrowser ; chmod +x ./3rd/9htl
 
+#### Use Docker
+[Click here](https://hub.docker.com/r/9hitste/app) for more details.
+
+    docker pull 9hitste/app
+
 !!! tip
     You may want to [install the app without GUI](https://github.com/9hitste/install)
 

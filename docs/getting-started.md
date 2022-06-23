@@ -15,6 +15,7 @@ Active the `Exchange Mode` tab, press the :fontawesome-solid-plus: button to add
 
 !!! info
     By running the application, you will start viewing other members' websites in the system and earn :fontawesome-solid-cube:{.txt-danger} [POINTS](https://9hits.com/faqs.html) to your account.
+    
     ![Point Balance](imgs/points-balance.png)
 
 ## Creating a new campaign
