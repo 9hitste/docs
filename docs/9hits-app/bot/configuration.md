@@ -86,6 +86,31 @@ Show an error message to the Status column, the bot will retry your script then.
     })()
     ```
 
+### SetStatus 
+Show a status text to the thread that calling your parser script.
+
+???+ info "Syntax"
+    ``` js
+    SetStatus (text);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `text`       | a text content.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    (async ()=>{
+        SetStatus("Connecting to my-proxy-server...");
+        const result = await HttpRequest("http://my-proxy-server.com");
+        SetProxy ({
+            ProxyType: "http",
+            ProxyAddress: result
+        });
+    })()
+    ```
+
 ### HttpRequest 
 Make a HTTP request
 
@@ -142,30 +167,6 @@ Read a file and return as text.
     });
     ```
 
-### SetStatus 
-Show a status text to the thread that calling your parser script.
-
-???+ info "Syntax"
-    ``` js
-    SetStatus (text);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `text`       | a text content.  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    (async ()=>{
-        SetStatus("Connecting to my-proxy-server...");
-        const result = await HttpRequest("http://my-proxy-server.com");
-        SetProxy ({
-            ProxyType: "http",
-            ProxyAddress: result
-        });
-    })()
-    ```
 ### Constants and Variables
 ???+ example "You can use these constants and variables in your script"
     ``` js linenums="1"
