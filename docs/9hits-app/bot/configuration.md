@@ -69,6 +69,23 @@ This is the most important function, once you have obtained the proxy from your 
     })
     ```
 
+### SetError
+Show an error message to the Status column, the bot will retry your script then.
+
+???+ example "Example"
+    ``` js linenums="1"
+    (async ()=>{
+        const result = await HttpRequest("http://my-proxy-server.com", {from: "9hits-bot"});
+        if(result) {
+            SetProxy ({
+                ProxyType: "http",
+                ProxyAddress: result
+            });
+        }
+        else SetError("My server return empty");
+    })()
+    ```
+
 ### HttpRequest 
 Make a HTTP request
 
