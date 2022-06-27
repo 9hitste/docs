@@ -426,6 +426,74 @@ Set the value for an attribute of an element based on its tag name.
     await SetByTag("input", "value", "text value", "all");
     ```
 
+## CapturePage 
+Take an screenshot of the web page in JPEG format, return it as base64 encoded.
+
+???+ info "Syntax"
+    ``` js
+    await CapturePage (quality);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `quality`       | The quality of the image (from 0 to 100), default is 80.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    const imgBase64 = await CapturePage();
+    const betterImgBase64 = await CapturePage(100);
+    ```
+
+## CaptureArea 
+Capture a specified area of the web page with JPEG format, return as base64 encoded.
+
+???+ info "Syntax"
+    ``` js
+    await CaptureArea (x1, y1, x2, y2, quality);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `x1`       | x coordinate of the top-left   |
+    | `y1`       | y coordinate of the top-left   |
+    | `x2`       | x coordinate of the right-bottom   |
+    | `y2`       | y coordinate of the right-bottom   |
+    | `quality`       | The quality of the image (from 0 to 100), default is 80.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    const imgBase64 = await CaptureArea(0, 0, 300, 500);
+    const betterImgBase64 = await CaptureArea(0, 0, 300, 500, 100);
+    ```
+
+## CaptureElement 
+Capture an element by a selector of the web page with JPEG format, return as base64 encoded. Useful when you need to take a picture to bypass captcha, but you can also capture any element not just img tag.
+
+???+ info "Syntax"
+    ``` js
+    await CaptureElement (selector, quality, frameSearch, frameSearchType);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `selector`       |  The [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
+    | `quality`       | The quality of the image (from 0 to 100), default is 80.  |
+    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
+    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
+
+???+ example "Example"
+    ``` js linenums="1"
+    const captcha = await CaptureElement("#image_captcha");
+    const avatar = await CaptureElement("#profile img.avatar");
+    ```
+???+ tip
+    You can also generate the CaptureElement command easily by using [the Editor](overview.md#writing-your-script).
+
+    ![Get CaptureElement](../imgs/capture-element.png)
+
 ## EvalScript 
 Execute javascript code on the website and return value.
 
