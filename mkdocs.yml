@@ -75,6 +75,7 @@ nav:
             - 'GEO Proxy list': '9hits-app/bot/geo-proxy.md'
             - 'Custom Update': '9hits-app/bot/custom-update.md'
         - 'Profile Mode': '9hits-app/profile-mode.md'
+        - 'Proxy Pool': '9hits-app/proxy-pool.md'
     - 'Macros':
         - 'Overview': 'macros/overview.md'
         - 'Build-in Functions': 'macros/functions.md'

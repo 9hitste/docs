@@ -28,7 +28,7 @@ A session is like a browser profile in which web pages are viewed by the browser
     * Socks4: Socks4 proxy
     * Socks5: Socks5 proxy
     * SSH: SSH proxy
-    * ExProxy: External proxy pool, you can just import proxy to [your pool](https://panel.9hits.com/viewer/proxy) on the panel or [create your own proxy pool](https://github.com/9hitste/ExProxy-9Hits-Viewer)
+    * ExProxy: External proxy pool, you can just import proxy to [your pool](../proxy-pool.md) on the panel or [create your own proxy pool](https://github.com/9hitste/ExProxy-9Hits-Viewer)
 * Client: The client information when the session is running
 * Points: Earned points from the session
 * Hits: Sent hits from the session

@@ -33,6 +33,8 @@
 ```
 * Update URL / Frequency Check: Please read the [cusom update document](custom-update.md).
 * Browser Data: Tell the bot how to handle website data, the options are: `Clear All`, `Clear Cache Only`, `Clear Cookie Only`, `Keep All`
+* Download Mode: Options for downloading files
+* Browser Counter: When should the countdown start (browser close when the countdown ends).
 
 * Auto Start: Auto start the bot once the app is open.
 * Loop Forever: Loop your proxy list forever. If you disable this option, the bot will stop when all your proxies has been used
