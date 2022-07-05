@@ -1111,23 +1111,45 @@ Focusing on the specified browser tab, macros will be executed on the focused ta
     //focus to the first tab that does not contains facebook.com
     await TabFocus("!facebook.com");
     ```
-    
-## SendKeyDown  
-Simulate keydown event.
+
+## SendKeyPress  
+Simulate keypress event.
 
 ???+ info "Syntax"
     ``` js
-    await SendKeyDown (keyCode);
+    await SendKeyPress (keyCode, modifiers);
     ```
 
 ???+ abstract "Parameters"
     | Name      | Description                          |
     | ----------- | ------------------------------------ |
-    | `keyCode`       | [Key Code](https://keycode.info/)  |
+    | `keyCode`       | [Key Code](#keycode-table)  |
+    | `modifiers`       | Valid values: `WITH_ALT`, `WITH_CTRL`, `WITH_COMMAND`, `WITH_SHIFT`  |
 
 ???+ example "Example"
     ``` js linenums="1"
-    await SendKeyDown (65); //A
+    await SendKeyPress (K_KEYA); //press A
+    await SendKeyPress (K_KEYV, WITH_CTRL); //press Ctrl + V
+    await SendKeyPress (K_KEYV, WITH_CTRL | WITH_SHIFT); //press Ctrl + Shift + V
+    ```
+
+## SendKeyDown  
+Simulate keydown event.
+
+???+ info "Syntax"
+    ``` js
+    await SendKeyDown (keyCode, modifiers);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `keyCode`       | [Key Code](#keycode-table)  |
+    | `modifiers`       | Valid values: `WITH_ALT`, `WITH_CTRL`, `WITH_COMMAND`, `WITH_SHIFT`  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await SendKeyDown (K_KEYA); //keydown A
     ```
     
 ## SendKeyUp  
@@ -1135,17 +1157,18 @@ Simulate keyup event.
 
 ???+ info "Syntax"
     ``` js
-    await SendKeyUp (keyCode);
+    await SendKeyUp (keyCode, modifiers);
     ```
 
 ???+ abstract "Parameters"
     | Name      | Description                          |
     | ----------- | ------------------------------------ |
-    | `keyCode`       | [Key Code](https://keycode.info/)  |
+    | `keyCode`       | [Key Code](#keycode-table)  |
+    | `modifiers`       | Valid values: `WITH_ALT`, `WITH_CTRL`, `WITH_COMMAND`, `WITH_SHIFT`  |
 
 ???+ example "Example"
     ``` js linenums="1"
-    await SendKeyUp (65); //A
+    await SendKeyUp (K_KEYA); //keyup A
     ```
     
 ## SendKeyChar  
@@ -1159,29 +1182,12 @@ Simulate keychar event.
 ???+ abstract "Parameters"
     | Name      | Description                          |
     | ----------- | ------------------------------------ |
-    | `keyCode`       | [Key Code](https://keycode.info/)  |
+    | `keyCode`       | [Key Code](#keycode-table) or a character  |
 
 ???+ example "Example"
     ``` js linenums="1"
+    await SendKeyChar (K_KEYA);
     await SendKeyChar ("a");
-    ```
-    
-## SendKeyPress  
-Simulate keypress event.
-
-???+ info "Syntax"
-    ``` js
-    await SendKeyPress (keyCode);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `keyCode`       | [Key Code](https://keycode.info/)  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await SendKeyPress ("a");
     ```
     
 ## SendMouseClick  
@@ -1390,3 +1396,121 @@ Returns the current path that 9Hits App is running.
 
 !!! tip
     Feel free to request a new function [here](https://feedback.userreport.com/0aa1e5ad-9e2d-4556-bc9d-36024ec04a0e/#ideas/popular).
+
+## Keycode Table
+Use for these functions: [SendKeyPress](#sendkeypress), [SendKeyDown](#sendkeydown), [SendKeyUp](#sendkeyup), [SendKeyChar](#sendkeychar).
+
+??? abstract "Click here to see the list of key codes"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    |`K_BACKSPACE`    | Backspace|
+    |`K_TAB`    | Tab|
+    |`K_ENTER`    | Enter|
+    |`K_SHIFT`    | Shift|
+    |`K_CONTROL`    | Control|
+    |`K_ALT`    | Alt|
+    |`K_PAUSE`    | Pause|
+    |`K_CAPSLOCK`    | CapsLock|
+    |`K_ESCAPE`    | Escape|
+    |`K_SPACE`    | Space|
+    |`K_PAGEUP`    | PageUp|
+    |`K_PAGEDOWN`    | PageDown|
+    |`K_END`    | End|
+    |`K_HOME`    | Home|
+    |`K_ARROWLEFT`    | ArrowLeft|
+    |`K_ARROWUP`    | ArrowUp|
+    |`K_ARROWRIGHT`    | ArrowRight|
+    |`K_ARROWDOWN`    | ArrowDown|
+    |`K_PRINTSCREEN`    | PrintScreen|
+    |`K_INSERT`    | Insert|
+    |`K_DELETE`    | Delete|
+    |`K_DIGIT0`    | Digit0 (0)|
+    |`K_DIGIT1`    | Digit1 (1)|
+    |`K_DIGIT2`    | Digit2 (2)|
+    |`K_DIGIT3`    | Digit3 (3)|
+    |`K_DIGIT4`    | Digit4 (4)|
+    |`K_DIGIT5`    | Digit5 (5)|
+    |`K_DIGIT6`    | Digit6 (6)|
+    |`K_DIGIT7`    | Digit7 (7)|
+    |`K_DIGIT8`    | Digit8 (8)|
+    |`K_DIGIT9`    | Digit9 (9)|
+    |`K_KEYA`    | KeyA (A)|
+    |`K_KEYB`    | KeyB (B)|
+    |`K_KEYC`    | KeyC (C)|
+    |`K_KEYD`    | KeyD (D)|
+    |`K_KEYE`    | KeyE (E)|
+    |`K_KEYF`    | KeyF (F)|
+    |`K_KEYG`    | KeyG (G)|
+    |`K_KEYH`    | KeyH (H)|
+    |`K_KEYI`    | KeyI (I)|
+    |`K_KEYJ`    | KeyJ (J)|
+    |`K_KEYK`    | KeyK (K)|
+    |`K_KEYL`    | KeyL (L)|
+    |`K_KEYM`    | KeyM (M)|
+    |`K_KEYN`    | KeyN (N)|
+    |`K_KEYO`    | KeyO (O)|
+    |`K_KEYP`    | KeyP (P)|
+    |`K_KEYQ`    | KeyQ (Q)|
+    |`K_KEYR`    | KeyR (R)|
+    |`K_KEYS`    | KeyS (S)|
+    |`K_KEYT`    | KeyT (T)|
+    |`K_KEYU`    | KeyU (U)|
+    |`K_KEYV`    | KeyV (V)|
+    |`K_KEYW`    | KeyW (W)|
+    |`K_KEYX`    | KeyX (X)|
+    |`K_KEYY`    | KeyY (Y)|
+    |`K_KEYZ`    | KeyZ (Z)|
+    |`K_METALEFT`    | MetaLeft (Meta)|
+    |`K_METARIGHT`    | MetaRight (Meta)|
+    |`K_CONTEXTMENU`    | ContextMenu|
+    |`K_NUMPAD0`    | Numpad0 (0)|
+    |`K_NUMPAD1`    | Numpad1 (1)|
+    |`K_NUMPAD2`    | Numpad2 (2)|
+    |`K_NUMPAD3`    | Numpad3 (3)|
+    |`K_NUMPAD4`    | Numpad4 (4)|
+    |`K_NUMPAD5`    | Numpad5 (5)|
+    |`K_NUMPAD6`    | Numpad6 (6)|
+    |`K_NUMPAD7`    | Numpad7 (7)|
+    |`K_NUMPAD8`    | Numpad8 (8)|
+    |`K_NUMPAD9`    | Numpad9 (9)|
+    |`K_NUMPADMULTIPLY`    | NumpadMultiply (*)|
+    |`K_NUMPADADD`    | NumpadAdd (+)|
+    |`K_NUMPADSUBTRACT`    | NumpadSubtract (-)|
+    |`K_NUMPADDECIMAL`    | NumpadDecimal (.)|
+    |`K_NUMPADDIVIDE`    | NumpadDivide (/)|
+    |`K_F1`    | F1|
+    |`K_F2`    | F2|
+    |`K_F3`    | F3|
+    |`K_F4`    | F4|
+    |`K_F5`    | F5|
+    |`K_F6`    | F6|
+    |`K_F7`    | F7|
+    |`K_F8`    | F8|
+    |`K_F9`    | F9|
+    |`K_F10`    | F10|
+    |`K_F11`    | F11|
+    |`K_F12`    | F12|
+    |`K_NUMLOCK`    | NumLock|
+    |`K_SCROLLLOCK`    | ScrollLock|
+    |`K_AUDIOVOLUMEMUTE`    | AudioVolumeMute|
+    |`K_AUDIOVOLUMEDOWN`    | AudioVolumeDown|
+    |`K_AUDIOVOLUMEUP`    | AudioVolumeUp|
+    |`K_MEDIATRACKNEXT`    | MediaTrackNext|
+    |`K_MEDIATRACKPREVIOUS`    | MediaTrackPrevious|
+    |`K_MEDIASTOP`    | MediaStop|
+    |`K_MEDIAPLAYPAUSE`    | MediaPlayPause|
+    |`K_LAUNCHMAIL`    | LaunchMail|
+    |`K_LAUNCHMEDIAPLAYER`    | LaunchMediaPlayer|
+    |`K_LAUNCHAPPLICATION1`    | LaunchApplication1|
+    |`K_LAUNCHAPPLICATION2`    | LaunchApplication2|
+    |`K_SEMICOLON`    | Semicolon (;)|
+    |`K_EQUAL`    | Equal (=)|
+    |`K_COMMA`    | Comma (,)|
+    |`K_MINUS`    | Minus (-)|
+    |`K_PERIOD`    | Period (.)|
+    |`K_SLASH`    | Slash (/)|
+    |`K_BACKQUOTE`    | Backquote (`)|
+    |`K_BRACKETLEFT`    | BracketLeft ([)|
+    |`K_BACKSLASH`    | Backslash (\\)|
+    |`K_BRACKETRIGHT`    | BracketRight (])|
+    |`K_QUOTE`    | Quote (')|
