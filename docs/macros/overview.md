@@ -23,6 +23,7 @@ await ClickBySelector("a[href*='9hits.com']");
 ```
 
 !!! tip
+    Visit our [github repo](https://github.com/9hitste/macros) to try ready-made scripts.
     Use the [Log](functions.md#log) function would help you in debugging your script.
 
 ![Log function](../imgs/macro-debug.png)

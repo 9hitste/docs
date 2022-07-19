@@ -6,7 +6,7 @@
     Some functions are required **await** keyword
 
 ## TheCampaign object
-You can get some informations of your campaign from TheCampaign object. This object is available on the Exchange Mode only.
+You can get some informations of your campaign from TheCampaign object. This object is available on the [Exchange Mode](../9hits-app/exchange/app-config.md) only.
 
 ``` js linenums="1"
 const TheCampaign  = { 
@@ -797,12 +797,115 @@ Get an image in base64 format based on its xpath.
     const imgB64 = await GetImageByXpath (GenerateXpath("img", "name", "captcha"));
     ```
     
+## SolveRecaptcha
+This is a high-level function for solving ReCaptcha, built on top of functions [_2CaptchaSolve](#_2captchasolve) and [ACSolve](#acsolve). If the captcha is successfully solved, the result will automatically be assigned, then you can click the buttons such as `Submit`, `Continue`, etc using [click functions](#clickbyselector). If these buttons do not exist, you can call the function [TryToCallRecaptchaCallBack](#trytocallrecaptchacallback) instead. The return result will be `false` in case of failed resolve, otherwise the data from the service API server.
+
+???+ info "Syntax"
+    ``` js
+    await SolveRecaptcha (service, apiKey, timeout = 300, overrideApiServer = null);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `service`       | Can be: `2captcha` or `anti-captcha`  |
+    | `apiKey`       | Your API key with the corresponding service|
+    | `timeout`       | Maximum time to solve the captcha, in seconds (optional)|
+    | `overrideApiServer`       | Overwrite the URL server of the captcha service (optional)|
+
+!!! tip "[Watch a demo :fontawesome-brands-youtube:](https://youtu.be/v-6c6ckUNpE)"
+
+???+ example "Example"
+    ``` js linenums="1"
+    //test on https://www.google.com/recaptcha/api2/demo
+    await WaitForLoading ();
+    const result = await SolveRecaptcha("2captcha", "YOUR_API_KEY");
+    //const result = await SolveRecaptcha("anti-captcha", "YOUR_API_KEY");
+    await ClickBySelector('#recaptcha-demo-submit'); //click submit button
+    //await TryToCallRecaptchaCallBack(result.request);
+
+    /*
+    Example of result value:
+    
+    2captcha: {"status":1,"request":"THE_RESPONSE_RESULT","captchaId":"71006265012"}
+    
+    anti-captcha: 
+    {
+        "errorId":0,
+        "status":"ready",
+        "solution":{
+            "gRecaptchaResponse":"THE_RESPONSE_RESULT",
+            "cookies":{
+                "_GRECAPTCHA":"COOKIES..."
+            }
+        },
+        "cost":"0.00200",
+        "ip":"1.2.3.4",
+        "createTime":1658115990,
+        "endTime":1658116074,
+        "solveCount":0,
+        "taskId":685667638
+    }
+    */
+    ```
+
+## SolveImageCaptcha
+This is a high-level function for solving image captcha, built on top of functions [_2CaptchaSolve](#_2captchasolve) and [ACSolve](#acsolve). If the captcha is successfully solved, the result will automatically be assigned, then you can click the buttons such as `Submit`, `Continue`, etc using [click functions](#clickbyselector).The return result will be `false` in case of failed resolve, otherwise the data from the service API server.
+
+???+ info "Syntax"
+    ``` js
+    await SolveImageCaptcha (imgSelector, resultSelector, service, apiKey, timeout = 300, overrideApiServer = null);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `imgSelector` | The [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp) of the image. |
+    | `resultSelector` | The [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp) of the input textbox to fill the reuslt. |
+    | `service`       | Can be: `2captcha` or `anti-captcha`  |
+    | `apiKey`       | Your API key with the corresponding service|
+    | `timeout`       | Maximum time to solve the captcha, in seconds (optional)|
+    | `overrideApiServer`       | Overwrite the URL server of the captcha service (optional)|
+
+!!! tip "[Watch a demo :fontawesome-brands-youtube:](https://youtu.be/v-6c6ckUNpE)"
+
+???+ example "Example"
+    ``` js linenums="1"
+    //test on https://captcha.com/demos/features/captcha-demo.aspx
+    await WaitForLoading ();
+    const result = await SolveImageCaptcha("#demoCaptcha_CaptchaImage", "#captchaCode", "2captcha", "YOUR_API_KEY")
+    // const result = await SolveImageCaptcha("#demoCaptcha_CaptchaImage", "#captchaCode", "anti-captcha", "YOUR_API_KEY")
+    await ClickBySelector ("#validateCaptchaButton");
+
+    /*
+    Example of result value:
+    
+    2captcha: {"status":1,"request":"bw8t","captchaId":"71014870176"}
+    
+    anti-captcha: 
+    {
+        "errorId":0,
+        "status":"ready",
+        "solution":{
+            "text":"BW8T",
+            "url":"http://209.212.146.170/80/165820017899645.jpg"
+        },
+        "cost":"0.00070",
+        "ip":"1.2.3.4",
+        "createTime":1658200178,
+        "endTime":1658200181,
+        "solveCount":0,
+        "taskId":701277528
+    }
+    */
+    ```
+    
 ## _2CaptchaSolve 
 Solve captcha by [2Captcha](https://2captcha.com/?from=5813015) service. If you want to use another provider that is similar with 2captcha, you can override the api endpoint by set a url to `_2CaptchaServer`.
 
 ???+ info "Syntax"
     ``` js
-    await GetImageByXpath (xpath, frameSearch="", frameSearchType="");
+    await _2CaptchaSolve (params, timeout);
     ```
 
 ???+ abstract "Parameters"
@@ -853,7 +956,7 @@ If you believe that captcha is resolved incorrectly, you can use this function t
     ```
     
 ## ACSolve 
-Solve captcha by [anti-captcha](http://getcaptchasolution.com/03qpw8kysq) service. If you want to use another provider that is similar with anti-captcha, you can override the api endpoint to AntiCaptchaServer. Want to see a [demo](https://youtu.be/97pXmznShZk)?
+Solve captcha by [anti-captcha](http://getcaptchasolution.com/03qpw8kysq) service. If you want to use another provider that is similar with anti-captcha, you can override the api endpoint to AntiCaptchaServer.
 
 ???+ info "Syntax"
     ``` js
@@ -1005,9 +1108,169 @@ Try to execute recaptcha callback.
         }
     }, 600);
 
-    await TryToCallRecaptchaCallBack(result.solution.text);
+    await TryToCallRecaptchaCallBack(result.solution.gRecaptchaResponse);
     ```
-    
+
+## WaitForElement 
+Wait for an element (a DOM object) until a certain condition is satisfied. Return `true` when `conditionCallback` function returns `true`, `false` when timed out.
+
+???+ info "Syntax"
+    ``` js
+    await WaitForElement (selector, conditionCallback, timeout, frameSearch, frameSearchType);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
+    | `conditionCallback` | The callback function with an argument of the object selected by the `selector` must return `true` or `false`.|
+    | `timeout`       | Maximum time to wait for the `conditionCallback` to returns `true`, in seconds, default is 300s|
+    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
+    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
+
+???+ example "Example"
+    ``` js linenums="1"
+    //wait for an image (img tag) to has a none-empty src
+    await WaitForElement("img#captcha", (elm) => {
+        return elm && elm.src != ""
+    })
+    ```
+
+## WaitForElmToAppear 
+Wait for an element to appear.
+
+???+ info "Syntax"
+    ``` js
+    await WaitForElmToAppear (selector, timeout, frameSearch, frameSearchType);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
+    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
+    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
+    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForElmToAppear("#submit-btn");
+    await WaitForElmToAppear("#submit-btn", 25); //wait for 25s
+    ```
+
+## WaitForElmToDisappear 
+Wait for an element to disappear.
+
+???+ info "Syntax"
+    ``` js
+    await WaitForElmToDisappear (selector, timeout, frameSearch, frameSearchType);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
+    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
+    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
+    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForElmToDisappear("#cancel-btn");
+    await WaitForElmToDisappear("#cancel-btn", 25); //wait for 25s
+    ```
+
+## WaitForElmToHasAttr 
+Wait for an element until it has a desired attribute.
+
+???+ info "Syntax"
+    ``` js
+    await WaitForElmToHasAttr (selector, attr, timeout, frameSearch, frameSearchType);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
+    | `attr`       | The desired attribute |
+    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
+    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
+    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForElmToHasAttr("#submit-btn", "class");
+    ```
+
+## WaitForElmToHasAttrValue 
+Wait for an element until it has a desired attribute with a desired value.
+
+???+ info "Syntax"
+    ``` js
+    await WaitForElmToHasAttrValue (selector, attr, value, timeout, frameSearch, frameSearchType);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
+    | `attr`       | The desired attribute |
+    | `value`       | The desired value |
+    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
+    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
+    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForElmToHasAttrValue("#submit-btn", "class", "success-btn");
+    ```
+
+## WaitForElmToLoseAttr 
+Wait for an element until it lose a desired attribute.
+
+???+ info "Syntax"
+    ``` js
+    await WaitForElmToLoseAttr (selector, attr, timeout, frameSearch, frameSearchType);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
+    | `attr`       | The desired attribute |
+    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
+    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
+    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForElmToLoseAttr("#submit-btn", "disabled");
+    ```
+
+## WaitForElmTextUntil 
+Wait for an element until its text (innerText) satisfies a certain condition.
+
+???+ info "Syntax"
+    ``` js
+    await WaitForElmTextUntil (selector, condition, value, timeout, frameSearch, frameSearchType);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
+    | `condition`       | Condition to check `value`, can be: `equals`, `contains`, `starts-with`, `ends-with` |
+    | `value`       | The desired value |
+    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
+    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
+    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForElmTextUntil("#count-down", "contains", "Please wait");
+    await WaitForElmTextUntil("#count-down", "equals", "0s");
+    ```
+
 ## TabCount 
 Returns the number of opening browser windows.
 
@@ -1203,7 +1466,7 @@ Simulate mouseclick event.
     | ----------- | ------------------------------------ |
     | `x`       | x coordinates.  |
     | `y`       | y coordinates.  |
-    | `button`       | can be `"left"`, `"right"` or `"middle"`.  |
+    | `button`       | Can be `"left"`, `"right"` or `"middle"`.  |
 
 ???+ example "Example"
     ``` js linenums="1"
