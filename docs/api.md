@@ -60,13 +60,16 @@ GET https://panel.9hits.com/api/uaGet?key=YOUR_API_KEY
 ## Get campaigns
 Return your campaigns.
 ```
-GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY[&filter=condition]
+GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY[&page=1&limit=100&filter=condition]
 ```
 
 ??? abstract "Sample Request"
     ```
-    Get all your campaign:
+    Get your first 100 campaign:
     GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY
+
+    Get your first 500 campaign:
+    GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY&limit=500&page=1
 
     Get all your campaigns filtered by title or url:
     GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY&filter=my%20site
@@ -108,7 +111,14 @@ GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY[&filter=condition]
                     "desktop": 48,
                     "custom": 2,
                     "custom-ua": [
-                        "743"
+                        {
+                            "id": "743",
+                            "rate": 30
+                        },
+                        {
+                            "id": "8523",
+                            "rate": 70
+                        }
                     ]
                 },
                 "macros": "await WaitForLoading();\r\nwhile(true)\r\n{\r\n    await Delay(Random(5000, 15000));\r\n    await ClickRandomLink();\r\n}",
@@ -261,6 +271,10 @@ GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY[&filter=condition]
         ]
     }
     ```
+
+!!! warning
+    The `limit` is 100 by default, maximum is 500, the `page` starts from 1. The returns are sorted by creation date.
+
 ## Add new campaign
 The request body contains your campaign information in JSON format.
 ```
@@ -314,7 +328,16 @@ POST https://panel.9hits.com/api/siteAdd?key=YOUR_API_KEY
             "mobile": 32,
             "desktop": 66,
             "custom": 2,
-            "custom-ua": [743, 746] //array of user-agent group id
+            "custom-ua": [
+                {
+                    "id": "743",
+                    "rate": 30
+                },
+                {
+                    "id": "8523",
+                    "rate": 70
+                }
+            ] //array of user-agent group id wite usage rate
         },
         "macros": "await WaitForLoading();\r\nwhile(true)\r\n{\r\n    await Delay(Random(5000, 15000));\r\n    await ClickRandomLink();\r\n}",
         "popupMacros": "await WaitForLoading();\r\nwhile(true)\r\n{\r\n    await Delay(Random(5000, 15000));\r\n    await ClickRandomLink();\r\n}",
