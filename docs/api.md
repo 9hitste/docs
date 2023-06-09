@@ -337,7 +337,7 @@ POST https://panel.9hits.com/api/siteAdd?key=YOUR_API_KEY
                     "id": "8523",
                     "rate": 70
                 }
-            ] //array of user-agent group id wite usage rate
+            ] //array of user-agent group id with usage rate
         },
         "macros": "await WaitForLoading();\r\nwhile(true)\r\n{\r\n    await Delay(Random(5000, 15000));\r\n    await ClickRandomLink();\r\n}",
         "popupMacros": "await WaitForLoading();\r\nwhile(true)\r\n{\r\n    await Delay(Random(5000, 15000));\r\n    await ClickRandomLink();\r\n}",

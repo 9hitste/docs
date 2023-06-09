@@ -121,7 +121,10 @@ Note: Any other sessions from other machines that matched your filter will also 
 ```
 
 #### Hourly Limit
-Set the hourly view limit, There are three modes related to speed of sending visits: Normal, Fast, and Slow. Consider yourself and choose the appropriate mode. The number of views can be set for each individual hour. Note that the time is based on the 9Hits server time!
+Set the hourly views limit, There are three modes related to speed of sending visits: Normal, Fast, and Slow. Consider yourself and choose the appropriate mode. The number of views can be set for each individual hour. Note that the time is based on the 9Hits server time!
+
+!!! tip
+    You may set 0 to get unlimited views or -1 to disable views for certain hours!
 
 #### Disable Js/Image/Cookie Rate
 This is the rate of disabling some browser features. That means if you set to zero mean completely activate and 100 is completely disabled. You can set a rate for any feature. For example, we set to 65, which means the feature is turned off at 65% and turns on at 35%. **Note that turning off Image will affect Googly Analytic.**

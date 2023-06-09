@@ -848,6 +848,31 @@ This is a high-level function for solving ReCaptcha, built on top of functions [
     }
     */
     ```
+    
+## SolvehCaptcha
+This is a high-level function for solving hCaptcha, built on top of functions [_2CaptchaSolve](#_2captchasolve) and [ACSolve](#acsolve). If the captcha is successfully solved, the result will automatically be assigned, then you can click the buttons such as `Submit`, `Continue`, etc using [click functions](#clickbyselector). The return result will be `false` in case of failed resolve, otherwise the data from the service API server.
+
+???+ info "Syntax"
+    ``` js
+    await SolvehCaptcha (service, apiKey, timeout = 300, overrideApiServer = null);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `service`       | Can be: `2captcha` or `anti-captcha`  |
+    | `apiKey`       | Your API key with the corresponding service|
+    | `timeout`       | Maximum time to solve the captcha, in seconds (optional)|
+    | `overrideApiServer`       | Overwrite the URL server of the captcha service (optional)|
+
+???+ example "Example"
+    ``` js linenums="1"
+    //test on https://accounts.hcaptcha.com/demo
+    await WaitForLoading ();
+    const result = await SolvehCaptcha("2captcha", "YOUR_API_KEY");
+    //const result = await SolvehCaptcha("anti-captcha", "YOUR_API_KEY");
+    await ClickById('hcaptcha-demo-submit'); //click submit button
+    ```
 
 ## SolveImageCaptcha
 This is a high-level function for solving image captcha, built on top of functions [_2CaptchaSolve](#_2captchasolve) and [ACSolve](#acsolve). If the captcha is successfully solved, the result will automatically be assigned, then you can click the buttons such as `Submit`, `Continue`, etc using [click functions](#clickbyselector).The return result will be `false` in case of failed resolve, otherwise the data from the service API server.
@@ -1538,13 +1563,14 @@ Make HTTP Request
     | `headers`       | Custom HTTP headers.  |
 
 ???+ example "Example"
+
     ``` js linenums="1"
     const test1 = await HttpRequest("http://google.com");
-    const test2 = await HttpRequest("http://google.com", "", {"post_data" : "xxx", "other_data": "yyy"});
-    const test3 = await HttpRequest("http://google.com", "", {"post_data" : "xxx", "other_data": "yyy"}, {"custom-header": "custom-value"});
+    const test2 = await HttpRequest("http://google.com", {"post_data" : "xxx", "other_data": "yyy"});
+    const test3 = await HttpRequest("http://google.com", {"post_data" : "xxx", "other_data": "yyy"}, "", {"custom-header": "custom-value"});
     
     //send raw body
-    const test4 = await HttpRequest("url", JSON.stringify({post_field: value}), "", {"Content-Type": "application/json"}));
+    const test4 = await HttpRequest("url", JSON.stringify({post_field: value}), "", {"Content-Type": "application/json"});
     ```
 
 
