@@ -1,0 +1,14 @@
+.txt-success {
+    color: #01c853
+}
+
+.txt-warning {
+    color: #fec107
+}
+
+.txt-danger {
+    color: #ff2a00
+}
+:root > * {
+    --md-typeset-a-color: #ff6e42;
+}
