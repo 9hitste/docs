@@ -6,7 +6,7 @@
     Some functions are required **await** keyword
 
 ## TheCampaign object
-You can get some informations of your campaign from TheCampaign object. This object is available on the [Exchange Mode](../9hits-app/exchange/app-config.md) only.
+You can get some informations of your campaign from TheCampaign object.
 
 ``` js linenums="1"
 const TheCampaign  = { 
@@ -24,7 +24,7 @@ Print one or more message to the Macros Editor output.
 
 ???+ info "Syntax"
     ``` js
-    Log(msg1[, msg2, msg3, ...);
+    Log(msg1[, msg2, msg3, ...]);
     ```
 
 ???+ abstract "Parameters"
@@ -100,6 +100,167 @@ Take a random item from an array.
     Log (randomKeyword);
     ```
 
+## SendMouseClick  
+Simulate mouseclick event.
+
+???+ info "Syntax"
+    ``` js
+    await SendMouseClick (x, y, button);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `x`       | x coordinates.  |
+    | `y`       | y coordinates.  |
+    | `button`       | Can be `"left"`, `"right"` or `"middle"`.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await SendMouseClick (100, 150, "left");
+    ```
+    
+## SendMouseMove  
+Simulate mousemove event.
+
+???+ info "Syntax"
+    ``` js
+    await SendMouseMove (x, y);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `x`       | x coordinates.  |
+    | `y`       | y coordinates.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await SendMouseMove (100, 150);
+    ```
+    
+## SendMouseWheel  
+Simulate mousewheel event.
+
+???+ info "Syntax"
+    ``` js
+    await SendMouseWheel (deltaX, deltaY);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `deltaX`       | Delta X.  |
+    | `deltaY`       | Delta Y.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await SendMouseWheel(0, -120); //scroll down 120px
+    await Delay(3000);
+    await SendMouseWheel(0, 120); //scroll up 120px
+    ```
+
+## MoveMouse  
+Simulate moving the mouse between two points.
+
+???+ info "Syntax"
+    ``` js
+    await MoveMouse (startPoint, endPoint, modifiers = 0, button = "none");
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `startPoint`       | Start point.  |
+    | `endPoint`       | End point.  |
+    | `modifiers`       | Valid values: WITH_ALT, WITH_CTRL, WITH_COMMAND, WITH_SHIFT.  |
+    | `button`       | Pressed mouse button: none, left, right, middle.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForLoading();
+    await MoveMouse({X: 0, Y: 0}, {X: 300, Y: 300});
+    await MoveMouse({X: 300, Y: 300}, {X: 0, Y: 300});
+    await MoveMouse({X: 0, Y: 300}, {X: 300, Y: 0});
+    await MoveMouse({X: 300, Y: 0}, {X: 0, Y: 0});
+    ```
+
+## MoveMouseToArea  
+Simulate moving the mouse to an area.
+
+???+ info "Syntax"
+    ``` js
+    await MoveMouseToArea (x1, y1, x2, y2, modifiers = 0, button = "none");
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `x1`       | x coordinate of the top-left   |
+    | `y1`       | y coordinate of the top-left   |
+    | `x2`       | x coordinate of the right-bottom   |
+    | `y2`       | y coordinate of the right-bottom   |
+    | `modifiers`       | Valid values: WITH_ALT, WITH_CTRL, WITH_COMMAND, WITH_SHIFT.  |
+    | `button`       | Pressed mouse button: none, left, right, middle.  |
+
+    ![Coordinates](../imgs/coordinates.png)
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForLoading();
+    await MoveMouseToArea(0, 0, 300, 300);
+    await MoveMouseToArea(0, 0, 300, 300);
+    ```
+
+## MoveMouseToAnyWhere  
+Simulate moving the mouse to a random position.
+
+???+ info "Syntax"
+    ``` js
+    await MoveMouseToAnyWhere (modifiers = 0, button = "none");
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `modifiers`       | Valid values: WITH_ALT, WITH_CTRL, WITH_COMMAND, WITH_SHIFT.  |
+    | `button`       | Pressed mouse button: none, left, right, middle.  |
+
+    ![Coordinates](../imgs/coordinates.png)
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForLoading();
+    await MoveMouseToAnyWhere();
+    await MoveMouseToAnyWhere();
+    ```
+
+## MoveMouseToElmBySelector  
+Simulate moving the mouse to an element by a selector.
+
+???+ info "Syntax"
+    ``` js
+    await MoveMouseToElmBySelector (selector, index=0, frameSearch="", frameSearchType="", modifiers = 0, button = "none");
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
+    | `index`       |  Index of the element in case there are more than one elements matched the selector. You can use number (`0` for the first element) or `"random"` to randomly click an element, default is `0`.   |
+    | `frameSearch`       | If the target element is in an iframe, you have to tell the macros what frame is, empty mean top main frame.   |
+    | `frameSearchType`       |  Frame search conditions, possible value: `"src-starts"`, `"src-ends"`, `"src-equals"`, `"src-contains"`, `"src-regex"`, `"frame-path"`, default is `"src-contains"`.   |
+    | `modifiers`       | Valid values: WITH_ALT, WITH_CTRL, WITH_COMMAND, WITH_SHIFT.  |
+    | `button`       | Pressed mouse button: none, left, right, middle.  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    //the test url is https://google.com/
+    await WaitForLoading();
+    //move mouse to the search text box
+    await MoveMouseToElmBySelector ('textarea[title="Search"]');
+    ```
+
 ## ClickByCoordinates
 Click on an area on your website based on coordinates.
 
@@ -128,7 +289,9 @@ Click on an area on your website based on coordinates.
 ???+ tip
     You can also get the coordinates from [the Editor](overview.md#writing-your-script) like this
     
-    ![Get Coordinates](../imgs/get-coors.gif)
+    <video width="100%" controls>
+        <source src="../../imgs/clickbycoors.mp4" type="video/mp4">
+    </video>
 
 ## ClickBySelector 
 Click on an element based on a css selector.
@@ -177,7 +340,9 @@ Click on an element based on a css selector.
 ???+ tip
     Are you confused? Don't worry! You can also generate this click command easily by using [the Editor](overview.md#writing-your-script) like this.
 
-    ![Get Coordinates](../imgs/gen-clickbyselector.gif)
+    <video width="100%" controls>
+        <source src="../../imgs/clickbyselector.mp4" type="video/mp4">
+    </video>
 
 ## ClickById 
 Click on an element based on its ID.
@@ -328,6 +493,104 @@ Randomly click any external link on your website.
 ???+ example "Example"
     ``` js linenums="1"
     await ClickRandomExternalLink();
+    ```
+
+## SendKeyPress  
+Simulate keypress event.
+
+???+ info "Syntax"
+    ``` js
+    await SendKeyPress (keyCode, modifiers);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `keyCode`       | [Key Code](#keycode-table)  |
+    | `modifiers`       | Valid values: `WITH_ALT`, `WITH_CTRL`, `WITH_COMMAND`, `WITH_SHIFT`  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await SendKeyPress (K_KEYA); //press A
+    await SendKeyPress (K_KEYV, WITH_CTRL); //press Ctrl + V
+    await SendKeyPress (K_KEYV, WITH_CTRL | WITH_SHIFT); //press Ctrl + Shift + V
+    ```
+
+## SendKeyDown  
+Simulate keydown event.
+
+???+ info "Syntax"
+    ``` js
+    await SendKeyDown (keyCode, modifiers);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `keyCode`       | [Key Code](#keycode-table)  |
+    | `modifiers`       | Valid values: `WITH_ALT`, `WITH_CTRL`, `WITH_COMMAND`, `WITH_SHIFT`  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await SendKeyDown (K_KEYA); //keydown A
+    ```
+    
+## SendKeyUp  
+Simulate keyup event.
+
+???+ info "Syntax"
+    ``` js
+    await SendKeyUp (keyCode, modifiers);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `keyCode`       | [Key Code](#keycode-table)  |
+    | `modifiers`       | Valid values: `WITH_ALT`, `WITH_CTRL`, `WITH_COMMAND`, `WITH_SHIFT`  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await SendKeyUp (K_KEYA); //keyup A
+    ```
+    
+## SendKeyChar  
+Simulate keychar event.
+
+???+ info "Syntax"
+    ``` js
+    await SendKeyChar (keyCode);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `keyCode`       | [Key Code](#keycode-table) or a character  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await SendKeyChar (K_KEYA);
+    await SendKeyChar ("a");
+    ```
+
+## Typing 
+Simulate keyboard typing.
+
+???+ info "Syntax"
+    ``` js
+    await Typing (text[, speed1, speed2]);
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `text`       | Text to type.  |
+    | `speed1` - `speed2`       | Delay time range to adjust typing speed (in miliseconds).  |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await Typing ("Hello 9Hits");
+    await Typing ("Hello 9Hits", 300, 500);
     ```
 
 ## SetById 
@@ -495,7 +758,7 @@ Capture an element by a selector of the web page with JPEG format, return as bas
     ![Get CaptureElement](../imgs/capture-element.png)
 
 ## EvalScript 
-Execute javascript code on the website and return value.
+Execute javascript code on the website and return value. Please note returned data can only be primitive data types or simple objects.
 
 ???+ info "Syntax"
     ``` js
@@ -512,9 +775,39 @@ Execute javascript code on the website and return value.
 ???+ example "Example"
     ``` js linenums="1"
     await WaitForLoading();
-    const loc = await EvalScript ('window.location');
-    loc.href="https://9hits.com";
-    Log(loc);
+    const r1 = await EvalScript ('(5+4) + "hits"');
+    //r1 =  {"result":"9hits"}
+    
+    const r2 = await EvalScript ('null[0]');
+    //r2 = {"error":"TypeError: Cannot read properties of null (reading '0')"}
+    ```
+
+## EvalScriptWithPromise 
+Same as EvalScript but execute a js code with an async function or a promise.
+
+???+ info "Syntax"
+    ``` js
+    await EvalScriptWithPromise (jsCode, frameSearch="", frameSearchType="");
+    ```
+
+???+ abstract "Parameters"
+    | Name      | Description                          |
+    | ----------- | ------------------------------------ |
+    | `jsCode`       | The javascript code to execute.  |
+    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
+    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
+
+???+ example "Example"
+    ``` js linenums="1"
+    await WaitForLoading();
+    const r1 = await EvalScriptWithPromise ('(async () => { return "9hits" })()');
+    //r1 =  {"result":"9hits"}
+    
+    const r2 = await EvalScriptWithPromise ('Promise.resolve("9hits")');
+    //r2 =  {"result":"9hits"}
+    
+    const r3 = await EvalScriptWithPromise ('Promise.noSuchFunc("9hits")');
+    //r3 =  {"error":"TypeError: Promise.noSuchFunc is not a function"}
     ```
 
 ## GenerateXpath 
@@ -546,28 +839,6 @@ Create xpath to target the element. You can combine this function with [ClickByX
 
     //a link has href contains "google"
     GenerateXpath("a", "href", "%google%");
-    ```
-
-## GetAttribute 
-Get the value of an attribute of an element based on its xpath.
-
-???+ info "Syntax"
-    ``` js
-    await GetAttribute (xpath, attr, frameSearch="", frameSearchType="");
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `xpath`       | Xpath of the element.  |
-    | `attr`       | The attribute of the element.  |
-    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
-    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
-
-???+ example "Example"
-    ``` js linenums="1"
-    const result = await GetAttribute ('//input[@type="email"]', 'value');
-    Log (result);
     ```
 
 ## GetElementPos 
@@ -608,17 +879,18 @@ Return the browser size.
     //Return: object {width: 1000, height: 800}
     ```
 
-## GetSource 
-Return the source code of the website.
+## GetWindowSize 
+Return the window size.
 
 ???+ info "Syntax"
     ``` js
-    await GetSource ();
+    await GetWindowSize ();
     ```
 
 ???+ example "Example"
     ``` js linenums="1"
-    const source = await GetSource();
+    const size = await GetWindowSize();
+    //size = {width: 1000, height: 800}
     ```
 
 ## GetHtml 
@@ -739,62 +1011,6 @@ Navigate to an url.
     await Navigate("https://google.com/");
     await WaitForLoading();
     await Navigate("https://9hits.com/", "https://google.com/");
-    ```
-    
-## GetDuration
-!!! warning "Exchange Mode only"
-Returns the maximum duration in seconds that the app will view your website.
-
-???+ info "Syntax"
-    ``` js
-    await GetDuration ();
-    ```
-    
-## GetViewedDuration
-!!! warning "Exchange Mode only"
-Returns the total time in seconds that the app viewed your website.
-
-???+ info "Syntax"
-    ``` js
-    await GetViewedDuration ();
-    ```
-    
-## GetMaxPopups
-!!! warning "Exchange Mode only"
-Returns the maximum number of popups your site may be allowed to open, if the owner disabled popups, the return value will be 0.
-
-???+ info "Syntax"
-    ``` js
-    await GetMaxPopups ();
-    ```
-    
-## GetConnectionType
-!!! warning "Exchange Mode only"
-Returns the connection type of the app. Possible values are: `system`, `http`, `socks4`, `socks5`, `ssh`.
-
-???+ info "Syntax"
-    ``` js
-    await GetConnectionType ();
-    ```
-    
-## GetImageByXpath 
-Get an image in base64 format based on its xpath.
-
-???+ info "Syntax"
-    ``` js
-    await GetImageByXpath (xpath, frameSearch="", frameSearchType="");
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `xpath`       | xpath of the element.  |
-    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
-    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
-
-???+ example "Example"
-    ``` js linenums="1"
-    const imgB64 = await GetImageByXpath (GenerateXpath("img", "name", "captcha"));
     ```
     
 ## SolveRecaptcha
@@ -1136,166 +1352,6 @@ Try to execute recaptcha callback.
     await TryToCallRecaptchaCallBack(result.solution.gRecaptchaResponse);
     ```
 
-## WaitForElement 
-Wait for an element (a DOM object) until a certain condition is satisfied. Return `true` when `conditionCallback` function returns `true`, `false` when timed out.
-
-???+ info "Syntax"
-    ``` js
-    await WaitForElement (selector, conditionCallback, timeout, frameSearch, frameSearchType);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
-    | `conditionCallback` | The callback function with an argument of the object selected by the `selector` must return `true` or `false`.|
-    | `timeout`       | Maximum time to wait for the `conditionCallback` to returns `true`, in seconds, default is 300s|
-    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
-    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
-
-???+ example "Example"
-    ``` js linenums="1"
-    //wait for an image (img tag) to has a none-empty src
-    await WaitForElement("img#captcha", (elm) => {
-        return elm && elm.src != ""
-    })
-    ```
-
-## WaitForElmToAppear 
-Wait for an element to appear.
-
-???+ info "Syntax"
-    ``` js
-    await WaitForElmToAppear (selector, timeout, frameSearch, frameSearchType);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
-    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
-    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
-    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await WaitForElmToAppear("#submit-btn");
-    await WaitForElmToAppear("#submit-btn", 25); //wait for 25s
-    ```
-
-## WaitForElmToDisappear 
-Wait for an element to disappear.
-
-???+ info "Syntax"
-    ``` js
-    await WaitForElmToDisappear (selector, timeout, frameSearch, frameSearchType);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
-    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
-    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
-    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await WaitForElmToDisappear("#cancel-btn");
-    await WaitForElmToDisappear("#cancel-btn", 25); //wait for 25s
-    ```
-
-## WaitForElmToHasAttr 
-Wait for an element until it has a desired attribute.
-
-???+ info "Syntax"
-    ``` js
-    await WaitForElmToHasAttr (selector, attr, timeout, frameSearch, frameSearchType);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
-    | `attr`       | The desired attribute |
-    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
-    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
-    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await WaitForElmToHasAttr("#submit-btn", "class");
-    ```
-
-## WaitForElmToHasAttrValue 
-Wait for an element until it has a desired attribute with a desired value.
-
-???+ info "Syntax"
-    ``` js
-    await WaitForElmToHasAttrValue (selector, attr, value, timeout, frameSearch, frameSearchType);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
-    | `attr`       | The desired attribute |
-    | `value`       | The desired value |
-    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
-    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
-    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await WaitForElmToHasAttrValue("#submit-btn", "class", "success-btn");
-    ```
-
-## WaitForElmToLoseAttr 
-Wait for an element until it lose a desired attribute.
-
-???+ info "Syntax"
-    ``` js
-    await WaitForElmToLoseAttr (selector, attr, timeout, frameSearch, frameSearchType);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
-    | `attr`       | The desired attribute |
-    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
-    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
-    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await WaitForElmToLoseAttr("#submit-btn", "disabled");
-    ```
-
-## WaitForElmTextUntil 
-Wait for an element until its text (innerText) satisfies a certain condition.
-
-???+ info "Syntax"
-    ``` js
-    await WaitForElmTextUntil (selector, condition, value, timeout, frameSearch, frameSearchType);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `selector`       |  a [CSS selector](https://www.w3schools.com/cssref/css_selectors.asp)   |
-    | `condition`       | Condition to check `value`, can be: `equals`, `contains`, `starts-with`, `ends-with` |
-    | `value`       | The desired value |
-    | `timeout`       | Maximum time to wait, in seconds, default is 300s|
-    | `frameSearch`       | See [ClickBySelector](#clickbyselector)   |
-    | `frameSearchType`       | See [ClickBySelector](#clickbyselector)   |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await WaitForElmTextUntil("#count-down", "contains", "Please wait");
-    await WaitForElmTextUntil("#count-down", "equals", "0s");
-    ```
-
 ## TabCount 
 Returns the number of opening browser windows.
 
@@ -1307,26 +1363,6 @@ Returns the number of opening browser windows.
 ???+ example "Example"
     ``` js linenums="1"
     const tabs = await TabCount();
-    ```
-    
-## Typing 
-Simulate keyboard typing.
-
-???+ info "Syntax"
-    ``` js
-    await Typing (text[, speed1, speed2]);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `text`       | Text to type.  |
-    | `speed1` - `speed2`       | Delay time range to adjust typing speed (in miliseconds).  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await Typing ("Hello 9Hits");
-    await Typing ("Hello 9Hits", 300, 500);
     ```
     
 ## ResizeTo  
@@ -1400,144 +1436,6 @@ Focusing on the specified browser tab, macros will be executed on the focused ta
     await TabFocus("!facebook.com");
     ```
 
-## SendKeyPress  
-Simulate keypress event.
-
-???+ info "Syntax"
-    ``` js
-    await SendKeyPress (keyCode, modifiers);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `keyCode`       | [Key Code](#keycode-table)  |
-    | `modifiers`       | Valid values: `WITH_ALT`, `WITH_CTRL`, `WITH_COMMAND`, `WITH_SHIFT`  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await SendKeyPress (K_KEYA); //press A
-    await SendKeyPress (K_KEYV, WITH_CTRL); //press Ctrl + V
-    await SendKeyPress (K_KEYV, WITH_CTRL | WITH_SHIFT); //press Ctrl + Shift + V
-    ```
-
-## SendKeyDown  
-Simulate keydown event.
-
-???+ info "Syntax"
-    ``` js
-    await SendKeyDown (keyCode, modifiers);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `keyCode`       | [Key Code](#keycode-table)  |
-    | `modifiers`       | Valid values: `WITH_ALT`, `WITH_CTRL`, `WITH_COMMAND`, `WITH_SHIFT`  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await SendKeyDown (K_KEYA); //keydown A
-    ```
-    
-## SendKeyUp  
-Simulate keyup event.
-
-???+ info "Syntax"
-    ``` js
-    await SendKeyUp (keyCode, modifiers);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `keyCode`       | [Key Code](#keycode-table)  |
-    | `modifiers`       | Valid values: `WITH_ALT`, `WITH_CTRL`, `WITH_COMMAND`, `WITH_SHIFT`  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await SendKeyUp (K_KEYA); //keyup A
-    ```
-    
-## SendKeyChar  
-Simulate keychar event.
-
-???+ info "Syntax"
-    ``` js
-    await SendKeyChar (keyCode);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `keyCode`       | [Key Code](#keycode-table) or a character  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await SendKeyChar (K_KEYA);
-    await SendKeyChar ("a");
-    ```
-    
-## SendMouseClick  
-Simulate mouseclick event.
-
-???+ info "Syntax"
-    ``` js
-    await SendMouseClick (x, y, button);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `x`       | x coordinates.  |
-    | `y`       | y coordinates.  |
-    | `button`       | Can be `"left"`, `"right"` or `"middle"`.  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await SendMouseClick (100, 150, "left");
-    ```
-    
-## SendMouseMove  
-Simulate mousemove event.
-
-???+ info "Syntax"
-    ``` js
-    await SendMouseMove (x, y);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `x`       | x coordinates.  |
-    | `y`       | y coordinates.  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await SendMouseMove (100, 150);
-    ```
-    
-## SendMouseWheel  
-Simulate mousewheel event.
-
-???+ info "Syntax"
-    ``` js
-    await SendMouseWheel (deltaX, deltaY);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `deltaX`       | Delta X.  |
-    | `deltaY`       | Delta Y.  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await SendMouseWheel(0, -120); //scroll down 120px
-    await Delay(3000);
-    await SendMouseWheel(0, 120); //scroll up 120px
-    ```
-    
 ## Exit  
 Close all browsers immediately.
 
@@ -1551,7 +1449,7 @@ Make HTTP Request
 
 ???+ info "Syntax"
     ``` js
-    await HttpRequest (url, params, referrer, headers);
+    await HttpRequest (url, params, timeout = 0, headers = null);
     ```
 
 ???+ abstract "Parameters"
@@ -1559,132 +1457,26 @@ Make HTTP Request
     | ----------- | ------------------------------------ |
     | `url`       | URL to send request.  |
     | `params`       | Post Parameters.  |
-    | `referrer`       | Referrer URL.  |
+    | `timeout`       | Request timeout (miliseconds).  |
     | `headers`       | Custom HTTP headers.  |
 
 ???+ example "Example"
 
     ``` js linenums="1"
-    const test1 = await HttpRequest("http://google.com");
-    const test2 = await HttpRequest("http://google.com", {"post_data" : "xxx", "other_data": "yyy"});
-    const test3 = await HttpRequest("http://google.com", {"post_data" : "xxx", "other_data": "yyy"}, "", {"custom-header": "custom-value"});
-    
-    //send raw body
-    const test4 = await HttpRequest("url", JSON.stringify({post_field: value}), "", {"Content-Type": "application/json"});
+    await WaitForLoading();
+    const r0 = await HttpRequest ("https://httpstat.us/200");
+    const r1 = await HttpRequest ("https://httpbin.org/get");
+    const r2 = await HttpRequest ("https://httpbin.org/post", {p1: 1, p2: 2});
+    const r3 = await HttpRequest ("https://httpbin.org/post", JSON.stringify({p1: 1, p2: 2}), 0, {"Content-Type": "application/json"});
+    /*
+    result look likes
+    {
+        "status":200,
+        "headers":"access-control-allow-credentials: true\r\naccess-control-allow-origin: *\r\ncontent-length: 734\r\ncontent-type: application/json\r\ndate: Mon, 08 Jul 2024 04:26:12 GMT\r\nserver: gunicorn/19.9.0\r\n",
+        "body": "..."
+    }
+    */
     ```
-
-
-## ReadFile
-!!! warning "Bot and Profile Mode only"
-Read and return the contents of a file as text.
-
-???+ info "Syntax"
-    ``` js
-    await ReadFile (path);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `path`       | Path to file.  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    const test = await ReadFile("C:\\test.txt");
-    Log(test);
-    ```
-
-## WriteFile
-!!! warning "Bot and Profile Mode only"
-Write text to a file.
-
-???+ info "Syntax"
-    ``` js
-    await WriteFile (path, content, mode);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `path`       | Path to file.  |
-    | `content`       | Text content.  |
-    | `mode`       | Can be `"override"` or `"append"`.  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    await WriteFile("C:\\test.txt", "Hello");
-    await WriteFile("C:\\test.txt", "World", "append");
-    ```
-
-## GetDownloadedFiles
-!!! warning "Bot and Profile Mode only"
-Returns an array of downloaded filenames.
-
-???+ info "Syntax"
-    ``` js
-    await GetDownloadedFiles ();
-    ```
-???+ example "Example"
-    ``` js linenums="1"
-    const files = await GetDownloadedFiles();
-    ```
-
-## IsFileDownloaded
-!!! warning "Bot and Profile Mode only"
-Check if the given file has been downloaded.
-
-???+ info "Syntax"
-    ``` js
-    await IsFileDownloaded (fileName);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `fileName`       | Name of the file to check.  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    const downloaded = await IsFileDownloaded("update.zip");
-    ```
-
-## SetUploadFileOrFolder
-!!! warning "Bot and Profile Mode only"
-Set the files will be selected when you click to a `Chose File` button on a web-page..
-
-???+ info "Syntax"
-    ``` js
-    SetUploadFileOrFolder (paths);
-    ```
-
-???+ abstract "Parameters"
-    | Name      | Description                          |
-    | ----------- | ------------------------------------ |
-    | `paths`       | a path to file/folder or an array of paths.  |
-
-???+ example "Example"
-    ``` js linenums="1"
-    SetUploadFileOrFolder("C:\\test.txt");
-    SetUploadFileOrFolder("C:\\myfiles");
-    SetUploadFileOrFolder(["C:\\test_1.txt", "C:\\test_2.txt"]);
-    ```
-
-## GetCurrentDir
-!!! warning "Bot and Profile Mode only"
-Returns the current path that 9Hits App is running.
-
-???+ info "Syntax"
-    ``` js
-    await GetCurrentDir ();
-    ```
-
-???+ example "Example"
-    ``` js linenums="1"
-    const dir = await GetCurrentDir ();
-    ```
-
-!!! tip
-    Feel free to request a new function [here](https://feedback.userreport.com/0aa1e5ad-9e2d-4556-bc9d-36024ec04a0e/#ideas/popular).
 
 ## Keycode Table
 Use for these functions: [SendKeyPress](#sendkeypress), [SendKeyDown](#sendkeydown), [SendKeyUp](#sendkeyup), [SendKeyChar](#sendkeychar).

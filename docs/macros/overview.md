@@ -3,11 +3,13 @@
 ---------
 
 ## What is the 9Hits Macros
-9Hits Macros is just javascript language, with a set of [built-in functions](functions.md) that help you create interactions on your website without the user's real interaction. Macros can be set for an [exchange campaign](../9hits-app/exchange/manage-campaign.md#macros), a [bot campaign](../9hits-app/bot/manage-campaign.md) or a [profile](../9hits-app/profile-mode.md).
+9Hits Macros is just javascript language, with a set of [built-in functions](functions.md) that help you create interactions on your website without the user's real interaction.
 
 You may want to see a [basic tutorial](https://forum.9hits.com/threads/9hits-macros-for-beginer.938/).
 
-![Macros Demo](../imgs/macros-demo.gif)
+<video width="100%" controls>
+    <source src="../../imgs/macro-editor.mp4" type="video/mp4">
+</video>
 
 ## Writing your script
 Before putting your script into the real mode, you can test to make sure it runs properly. To open the editor, just click the :fontawesome-solid-code:{.txt-warning} button.

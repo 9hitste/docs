@@ -60,23 +60,19 @@ extra_css:
     - css/9hits.css
 repo_url: https://github.com/9hitste/docs
 nav:
+    - 'Home': 'index.md'
     - 'Getting Started': 'getting-started.md'
     - '9Hits Application':
         - 'Overview': '9hits-app/overview.md'
         - 'Installation': '9hits-app/installation.md'
-        - 'Exchange Mode':
-            - 'Manage Campaign': '9hits-app/exchange/manage-campaign.md'
-            - 'Custom User-Agent': '9hits-app/exchange/user-agent.md'
-            - 'App Configuration': '9hits-app/exchange/app-config.md'
-        - 'Bot Mode':
-            - 'Configuration': '9hits-app/bot/configuration.md'
-            - 'Manage Campaign': '9hits-app/bot/manage-campaign.md'
-            - 'Manage User-Agent': '9hits-app/bot/user-agent.md'
-            - 'GEO Proxy list': '9hits-app/bot/geo-proxy.md'
-            - 'Custom Update': '9hits-app/bot/custom-update.md'
-        - 'Profile Mode': '9hits-app/profile-mode.md'
+        - 'Manage Campaign': '9hits-app/manage-campaign.md'
+        - 'Custom User-Agent': '9hits-app/user-agent.md'
+        - 'App Configuration': '9hits-app/app-config.md'
         - 'Proxy Pool': '9hits-app/proxy-pool.md'
     - 'Macros':
         - 'Overview': 'macros/overview.md'
         - 'Build-in Functions': 'macros/functions.md'
     - 'API': 'api.md'
+extra:
+  version:
+    provider: mike

@@ -106,20 +106,36 @@ GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY[&page=1&limit=100&filte
                     59,
                     70
                 ],
-                "platforms": {
-                    "mobile": 50,
-                    "desktop": 48,
-                    "custom": 2,
-                    "custom-ua": [
+                "platform": {
+                    "os": {
+                        "win": 20,
+                        "linux": 5,
+                        "mac": 25,
+                        "android": 38,
+                        "ios": 12
+                    },
+                    "browsers": {
+                        "chrome": 60,
+                        "edge": 30,
+                        "opera": 4,
+                        "safari": 3,
+                        "firefox": 3
+                    },
+                    "custom": [
                         {
-                            "id": "743",
-                            "rate": 30
+                            "value": 743,
+                            "weight":56
                         },
                         {
-                            "id": "8523",
-                            "rate": 70
+                            "value": 8523,
+                            "weight": 44
                         }
-                    ]
+                    ],
+                    "usage": {
+                        "system": 10,
+                        "fixed": 30,
+                        "custom": 60
+                    }
                 },
                 "macros": "await WaitForLoading();\r\nwhile(true)\r\n{\r\n    await Delay(Random(5000, 15000));\r\n    await ClickRandomLink();\r\n}",
                 "popupMacros": "await WaitForLoading();\r\nwhile(true)\r\n{\r\n    await Delay(Random(5000, 15000));\r\n    await ClickRandomLink();\r\n}",
@@ -264,7 +280,8 @@ GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY[&page=1&limit=100&filte
                 "forceHide": true,
                 "adSafe": "google-ads",
                 "webSecurity": false,
-                "alexaEnabled": true,
+                "similarWebEnabled": true,
+                "viewerVersion": "all",
                 "userState": "running",
                 "systemState": "approved"
             }
@@ -324,20 +341,36 @@ POST https://panel.9hits.com/api/siteAdd?key=YOUR_API_KEY
             22, //from
             70  //to
         ],
-        "platforms": {
-            "mobile": 32,
-            "desktop": 66,
-            "custom": 2,
-            "custom-ua": [
+        "platform": {
+            "os": {  //OS usage rate
+                "win": 20,
+                "linux": 5,
+                "mac": 25,
+                "android": 38,
+                "ios": 12
+            },
+            "browsers": { //Browser usage rate
+                "chrome": 60,
+                "edge": 30,
+                "opera": 4,
+                "safari": 3,
+                "firefox": 3
+            },
+            "custom": [ //Custom user agent usage rate
                 {
-                    "id": "743",
-                    "rate": 30
+                    "value": 743,
+                    "weight":56
                 },
                 {
-                    "id": "8523",
-                    "rate": 70
+                    "value": 8523,
+                    "weight": 44
                 }
-            ] //array of user-agent group id with usage rate
+            ],
+            "usage": { //User agent source usage rate
+                "system": 10,
+                "fixed": 30,
+                "custom": 60
+            }
         },
         "macros": "await WaitForLoading();\r\nwhile(true)\r\n{\r\n    await Delay(Random(5000, 15000));\r\n    await ClickRandomLink();\r\n}",
         "popupMacros": "await WaitForLoading();\r\nwhile(true)\r\n{\r\n    await Delay(Random(5000, 15000));\r\n    await ClickRandomLink();\r\n}",
@@ -471,6 +504,8 @@ POST https://panel.9hits.com/api/siteAdd?key=YOUR_API_KEY
         "forceHide": true,
         "adSafe": "google-ads", //can be empty
         "webSecurity": false,
+        "similarWebEnabled": true,
+        "viewerVersion": "all",
         "userState": "running" //paused
     }
     ```
