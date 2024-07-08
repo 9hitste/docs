@@ -16,7 +16,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.9hits.com/v5.x/9hits-app/app-config/</loc>
+         <lastmod>2024-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.9hits.com/v5.x/9hits-app/installation/</loc>
+         <lastmod>2024-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.9hits.com/v5.x/9hits-app/manage-campaign/</loc>
          <lastmod>2024-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -26,52 +36,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.9hits.com/v5.x/9hits-app/profile-mode/</loc>
-         <lastmod>2024-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.9hits.com/v5.x/9hits-app/proxy-pool/</loc>
          <lastmod>2024-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.9hits.com/v5.x/9hits-app/bot/configuration/</loc>
-         <lastmod>2024-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.9hits.com/v5.x/9hits-app/bot/custom-update/</loc>
-         <lastmod>2024-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.9hits.com/v5.x/9hits-app/bot/geo-proxy/</loc>
-         <lastmod>2024-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.9hits.com/v5.x/9hits-app/bot/manage-campaign/</loc>
-         <lastmod>2024-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.9hits.com/v5.x/9hits-app/bot/user-agent/</loc>
-         <lastmod>2024-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.9hits.com/v5.x/9hits-app/exchange/app-config/</loc>
-         <lastmod>2024-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.9hits.com/v5.x/9hits-app/exchange/manage-campaign/</loc>
-         <lastmod>2024-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.9hits.com/v5.x/9hits-app/exchange/user-agent/</loc>
+         <loc>https://docs.9hits.com/v5.x/9hits-app/user-agent/</loc>
          <lastmod>2024-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
