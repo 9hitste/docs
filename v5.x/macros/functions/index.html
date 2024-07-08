@@ -4091,7 +4091,7 @@
 <p>Make HTTP Request</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="w"> </span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">,</span><span class="w"> </span><span class="nx">referrer</span><span class="p">,</span><span class="w"> </span><span class="nx">headers</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="w"> </span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">,</span><span class="w"> </span><span class="nx">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">headers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">);</span>
 </code></pre></div>
 </details>
 <details class="abstract" open="open">
@@ -4113,8 +4113,8 @@
 <td>Post Parameters.</td>
 </tr>
 <tr>
-<td><code>referrer</code></td>
-<td>Referrer URL.</td>
+<td><code>timeout</code></td>
+<td>Request timeout (miliseconds).</td>
 </tr>
 <tr>
 <td><code>headers</code></td>
@@ -4125,17 +4125,31 @@
 </details>
 <details class="example" open="open">
 <summary>Example</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-121-1">1</a></span>
-<span class="normal"><a href="#__codelineno-121-2">2</a></span>
-<span class="normal"><a href="#__codelineno-121-3">3</a></span>
-<span class="normal"><a href="#__codelineno-121-4">4</a></span>
-<span class="normal"><a href="#__codelineno-121-5">5</a></span>
-<span class="normal"><a href="#__codelineno-121-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-121-1" name="__codelineno-121-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">);</span>
-<a id="__codelineno-121-2" name="__codelineno-121-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;post_data&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;other_data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yyy&quot;</span><span class="p">});</span>
-<a id="__codelineno-121-3" name="__codelineno-121-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;post_data&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;other_data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yyy&quot;</span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;custom-header&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;custom-value&quot;</span><span class="p">});</span>
-<a id="__codelineno-121-4" name="__codelineno-121-4"></a>
-<a id="__codelineno-121-5" name="__codelineno-121-5"></a><span class="c1">//send raw body</span>
-<a id="__codelineno-121-6" name="__codelineno-121-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="nx">post_field</span><span class="o">:</span><span class="w"> </span><span class="nx">value</span><span class="p">}),</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">});</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-121-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-121-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-121-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-121-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-121-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-121-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-121-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-121-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-121-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-121-10">10</a></span>
+<span class="normal"><a href="#__codelineno-121-11">11</a></span>
+<span class="normal"><a href="#__codelineno-121-12">12</a></span>
+<span class="normal"><a href="#__codelineno-121-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-121-1" name="__codelineno-121-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">WaitForLoading</span><span class="p">();</span>
+<a id="__codelineno-121-2" name="__codelineno-121-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">r0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;https://httpstat.us/200&quot;</span><span class="p">);</span>
+<a id="__codelineno-121-3" name="__codelineno-121-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">);</span>
+<a id="__codelineno-121-4" name="__codelineno-121-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">p1</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">p2</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">});</span>
+<a id="__codelineno-121-5" name="__codelineno-121-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">r3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;https://httpbin.org/post&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="nx">p1</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">p2</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">}),</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">});</span>
+<a id="__codelineno-121-6" name="__codelineno-121-6"></a><span class="cm">/*</span>
+<a id="__codelineno-121-7" name="__codelineno-121-7"></a><span class="cm">result look likes</span>
+<a id="__codelineno-121-8" name="__codelineno-121-8"></a><span class="cm">{</span>
+<a id="__codelineno-121-9" name="__codelineno-121-9"></a><span class="cm">    &quot;status&quot;:200,</span>
+<a id="__codelineno-121-10" name="__codelineno-121-10"></a><span class="cm">    &quot;headers&quot;:&quot;access-control-allow-credentials: true\r\naccess-control-allow-origin: *\r\ncontent-length: 734\r\ncontent-type: application/json\r\ndate: Mon, 08 Jul 2024 04:26:12 GMT\r\nserver: gunicorn/19.9.0\r\n&quot;,</span>
+<a id="__codelineno-121-11" name="__codelineno-121-11"></a><span class="cm">    &quot;body&quot;: &quot;...&quot;</span>
+<a id="__codelineno-121-12" name="__codelineno-121-12"></a><span class="cm">}</span>
+<a id="__codelineno-121-13" name="__codelineno-121-13"></a><span class="cm">*/</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="readfile">ReadFile<a class="headerlink" href="#readfile" title="Permanent link">#</a></h2>
