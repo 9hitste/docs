@@ -893,6 +893,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#movemousetoanywhere" class="md-nav__link">
+    MoveMouseToAnyWhere
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#movemousetoelmbyselector" class="md-nav__link">
+    MoveMouseToElmBySelector
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exit" class="md-nav__link">
     Exit
   </a>
@@ -1413,6 +1427,20 @@
         <li class="md-nav__item">
   <a href="#movemousetoarea" class="md-nav__link">
     MoveMouseToArea
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#movemousetoanywhere" class="md-nav__link">
+    MoveMouseToAnyWhere
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#movemousetoelmbyselector" class="md-nav__link">
+    MoveMouseToElmBySelector
   </a>
   
 </li>
@@ -3959,18 +3987,111 @@
 <a id="__codelineno-114-3" name="__codelineno-114-3"></a><span class="k">await</span><span class="w"> </span><span class="nx">MoveMouseToArea</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">300</span><span class="p">,</span><span class="w"> </span><span class="mf">300</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 </details>
+<h2 id="movemousetoanywhere">MoveMouseToAnyWhere<a class="headerlink" href="#movemousetoanywhere" title="Permanent link">#</a></h2>
+<p>Simulate moving the mouse to a random position.</p>
+<details class="info" open="open">
+<summary>Syntax</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">MoveMouseToAnyWhere</span><span class="w"> </span><span class="p">(</span><span class="nx">modifiers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">);</span>
+</code></pre></div>
+</details>
+<details class="abstract" open="open">
+<summary>Parameters</summary>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>modifiers</code></td>
+<td>Valid values: WITH_ALT, WITH_CTRL, WITH_COMMAND, WITH_SHIFT.</td>
+</tr>
+<tr>
+<td><code>button</code></td>
+<td>Pressed mouse button: none, left, right, middle.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Coordinates" src="../../imgs/coordinates.png" /></p>
+</details>
+<details class="example" open="open">
+<summary>Example</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-116-1">1</a></span>
+<span class="normal"><a href="#__codelineno-116-2">2</a></span>
+<span class="normal"><a href="#__codelineno-116-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-116-1" name="__codelineno-116-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">WaitForLoading</span><span class="p">();</span>
+<a id="__codelineno-116-2" name="__codelineno-116-2"></a><span class="k">await</span><span class="w"> </span><span class="nx">MoveMouseToAnyWhere</span><span class="p">();</span>
+<a id="__codelineno-116-3" name="__codelineno-116-3"></a><span class="k">await</span><span class="w"> </span><span class="nx">MoveMouseToAnyWhere</span><span class="p">();</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<h2 id="movemousetoelmbyselector">MoveMouseToElmBySelector<a class="headerlink" href="#movemousetoelmbyselector" title="Permanent link">#</a></h2>
+<p>Simulate moving the mouse to an element by a selector.</p>
+<details class="info" open="open">
+<summary>Syntax</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">MoveMouseToElmBySelector</span><span class="w"> </span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="o">=</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">frameSearch</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">frameSearchType</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">modifiers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">button</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">);</span>
+</code></pre></div>
+</details>
+<details class="abstract" open="open">
+<summary>Parameters</summary>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>selector</code></td>
+<td>a <a href="https://www.w3schools.com/cssref/css_selectors.asp">CSS selector</a></td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>Index of the element in case there are more than one elements matched the selector. You can use number (<code>0</code> for the first element) or <code>"random"</code> to randomly click an element, default is <code>0</code>.</td>
+</tr>
+<tr>
+<td><code>frameSearch</code></td>
+<td>If the target element is in an iframe, you have to tell the macros what frame is, empty mean top main frame.</td>
+</tr>
+<tr>
+<td><code>frameSearchType</code></td>
+<td>Frame search conditions, possible value: <code>"src-starts"</code>, <code>"src-ends"</code>, <code>"src-equals"</code>, <code>"src-contains"</code>, <code>"src-regex"</code>, <code>"frame-path"</code>, default is <code>"src-contains"</code>.</td>
+</tr>
+<tr>
+<td><code>modifiers</code></td>
+<td>Valid values: WITH_ALT, WITH_CTRL, WITH_COMMAND, WITH_SHIFT.</td>
+</tr>
+<tr>
+<td><code>button</code></td>
+<td>Pressed mouse button: none, left, right, middle.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example" open="open">
+<summary>Example</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-118-1">1</a></span>
+<span class="normal"><a href="#__codelineno-118-2">2</a></span>
+<span class="normal"><a href="#__codelineno-118-3">3</a></span>
+<span class="normal"><a href="#__codelineno-118-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-118-1" name="__codelineno-118-1"></a><span class="c1">//the test url is https://google.com/</span>
+<a id="__codelineno-118-2" name="__codelineno-118-2"></a><span class="k">await</span><span class="w"> </span><span class="nx">WaitForLoading</span><span class="p">();</span>
+<a id="__codelineno-118-3" name="__codelineno-118-3"></a><span class="c1">//move mouse to the search text box</span>
+<a id="__codelineno-118-4" name="__codelineno-118-4"></a><span class="k">await</span><span class="w"> </span><span class="nx">MoveMouseToElmBySelector</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;textarea[title=&quot;Search&quot;]&#39;</span><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+</details>
 <h2 id="exit">Exit<a class="headerlink" href="#exit" title="Permanent link">#</a></h2>
 <p>Close all browsers immediately.</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a><span class="nx">Exit</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a><span class="nx">Exit</span><span class="p">();</span>
 </code></pre></div>
 </details>
 <h2 id="httprequest">HttpRequest<a class="headerlink" href="#httprequest" title="Permanent link">#</a></h2>
 <p>Make HTTP Request</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="w"> </span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">,</span><span class="w"> </span><span class="nx">referrer</span><span class="p">,</span><span class="w"> </span><span class="nx">headers</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="w"> </span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">,</span><span class="w"> </span><span class="nx">referrer</span><span class="p">,</span><span class="w"> </span><span class="nx">headers</span><span class="p">);</span>
 </code></pre></div>
 </details>
 <details class="abstract" open="open">
@@ -4004,17 +4125,17 @@
 </details>
 <details class="example" open="open">
 <summary>Example</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-117-1">1</a></span>
-<span class="normal"><a href="#__codelineno-117-2">2</a></span>
-<span class="normal"><a href="#__codelineno-117-3">3</a></span>
-<span class="normal"><a href="#__codelineno-117-4">4</a></span>
-<span class="normal"><a href="#__codelineno-117-5">5</a></span>
-<span class="normal"><a href="#__codelineno-117-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-117-1" name="__codelineno-117-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">);</span>
-<a id="__codelineno-117-2" name="__codelineno-117-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;post_data&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;other_data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yyy&quot;</span><span class="p">});</span>
-<a id="__codelineno-117-3" name="__codelineno-117-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;post_data&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;other_data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yyy&quot;</span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;custom-header&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;custom-value&quot;</span><span class="p">});</span>
-<a id="__codelineno-117-4" name="__codelineno-117-4"></a>
-<a id="__codelineno-117-5" name="__codelineno-117-5"></a><span class="c1">//send raw body</span>
-<a id="__codelineno-117-6" name="__codelineno-117-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="nx">post_field</span><span class="o">:</span><span class="w"> </span><span class="nx">value</span><span class="p">}),</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">});</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-121-1">1</a></span>
+<span class="normal"><a href="#__codelineno-121-2">2</a></span>
+<span class="normal"><a href="#__codelineno-121-3">3</a></span>
+<span class="normal"><a href="#__codelineno-121-4">4</a></span>
+<span class="normal"><a href="#__codelineno-121-5">5</a></span>
+<span class="normal"><a href="#__codelineno-121-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-121-1" name="__codelineno-121-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">);</span>
+<a id="__codelineno-121-2" name="__codelineno-121-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;post_data&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;other_data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yyy&quot;</span><span class="p">});</span>
+<a id="__codelineno-121-3" name="__codelineno-121-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;http://google.com&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;post_data&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;xxx&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;other_data&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;yyy&quot;</span><span class="p">},</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;custom-header&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;custom-value&quot;</span><span class="p">});</span>
+<a id="__codelineno-121-4" name="__codelineno-121-4"></a>
+<a id="__codelineno-121-5" name="__codelineno-121-5"></a><span class="c1">//send raw body</span>
+<a id="__codelineno-121-6" name="__codelineno-121-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">HttpRequest</span><span class="p">(</span><span class="s2">&quot;url&quot;</span><span class="p">,</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="nx">post_field</span><span class="o">:</span><span class="w"> </span><span class="nx">value</span><span class="p">}),</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">});</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="readfile">ReadFile<a class="headerlink" href="#readfile" title="Permanent link">#</a></h2>
@@ -4024,7 +4145,7 @@
 <p>Read and return the contents of a file as text.</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">ReadFile</span><span class="w"> </span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">ReadFile</span><span class="w"> </span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
 </code></pre></div>
 </details>
 <details class="abstract" open="open">
@@ -4046,9 +4167,9 @@
 </details>
 <details class="example" open="open">
 <summary>Example</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-119-1">1</a></span>
-<span class="normal"><a href="#__codelineno-119-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ReadFile</span><span class="p">(</span><span class="s2">&quot;C:\\test.txt&quot;</span><span class="p">);</span>
-<a id="__codelineno-119-2" name="__codelineno-119-2"></a><span class="nx">Log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-123-1">1</a></span>
+<span class="normal"><a href="#__codelineno-123-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-123-1" name="__codelineno-123-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">ReadFile</span><span class="p">(</span><span class="s2">&quot;C:\\test.txt&quot;</span><span class="p">);</span>
+<a id="__codelineno-123-2" name="__codelineno-123-2"></a><span class="nx">Log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="writefile">WriteFile<a class="headerlink" href="#writefile" title="Permanent link">#</a></h2>
@@ -4058,7 +4179,7 @@
 <p>Write text to a file.</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-120-1" name="__codelineno-120-1" href="#__codelineno-120-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">WriteFile</span><span class="w"> </span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">mode</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">WriteFile</span><span class="w"> </span><span class="p">(</span><span class="nx">path</span><span class="p">,</span><span class="w"> </span><span class="nx">content</span><span class="p">,</span><span class="w"> </span><span class="nx">mode</span><span class="p">);</span>
 </code></pre></div>
 </details>
 <details class="abstract" open="open">
@@ -4088,9 +4209,9 @@
 </details>
 <details class="example" open="open">
 <summary>Example</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-121-1">1</a></span>
-<span class="normal"><a href="#__codelineno-121-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-121-1" name="__codelineno-121-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">WriteFile</span><span class="p">(</span><span class="s2">&quot;C:\\test.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span>
-<a id="__codelineno-121-2" name="__codelineno-121-2"></a><span class="k">await</span><span class="w"> </span><span class="nx">WriteFile</span><span class="p">(</span><span class="s2">&quot;C:\\test.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;World&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;append&quot;</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-125-1">1</a></span>
+<span class="normal"><a href="#__codelineno-125-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-125-1" name="__codelineno-125-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">WriteFile</span><span class="p">(</span><span class="s2">&quot;C:\\test.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="p">);</span>
+<a id="__codelineno-125-2" name="__codelineno-125-2"></a><span class="k">await</span><span class="w"> </span><span class="nx">WriteFile</span><span class="p">(</span><span class="s2">&quot;C:\\test.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;World&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;append&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="getdownloadedfiles">GetDownloadedFiles<a class="headerlink" href="#getdownloadedfiles" title="Permanent link">#</a></h2>
@@ -4100,12 +4221,12 @@
 <p>Returns an array of downloaded filenames.</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">GetDownloadedFiles</span><span class="w"> </span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-126-1" name="__codelineno-126-1" href="#__codelineno-126-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">GetDownloadedFiles</span><span class="w"> </span><span class="p">();</span>
 </code></pre></div>
 </details>
 <details class="example" open="open">
 <summary>Example</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-123-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-123-1" name="__codelineno-123-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">GetDownloadedFiles</span><span class="p">();</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-127-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-127-1" name="__codelineno-127-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">files</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">GetDownloadedFiles</span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="isfiledownloaded">IsFileDownloaded<a class="headerlink" href="#isfiledownloaded" title="Permanent link">#</a></h2>
@@ -4115,7 +4236,7 @@
 <p>Check if the given file has been downloaded.</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-124-1" name="__codelineno-124-1" href="#__codelineno-124-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">IsFileDownloaded</span><span class="w"> </span><span class="p">(</span><span class="nx">fileName</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-128-1" name="__codelineno-128-1" href="#__codelineno-128-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">IsFileDownloaded</span><span class="w"> </span><span class="p">(</span><span class="nx">fileName</span><span class="p">);</span>
 </code></pre></div>
 </details>
 <details class="abstract" open="open">
@@ -4137,7 +4258,7 @@
 </details>
 <details class="example" open="open">
 <summary>Example</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-125-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-125-1" name="__codelineno-125-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">downloaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">IsFileDownloaded</span><span class="p">(</span><span class="s2">&quot;update.zip&quot;</span><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-129-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-129-1" name="__codelineno-129-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">downloaded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">IsFileDownloaded</span><span class="p">(</span><span class="s2">&quot;update.zip&quot;</span><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="setuploadfileorfolder">SetUploadFileOrFolder<a class="headerlink" href="#setuploadfileorfolder" title="Permanent link">#</a></h2>
@@ -4147,7 +4268,7 @@
 <p>Set the files will be selected when you click to a <code>Chose File</code> button on a web-page..</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-126-1" name="__codelineno-126-1" href="#__codelineno-126-1"></a><span class="nx">SetUploadFileOrFolder</span><span class="w"> </span><span class="p">(</span><span class="nx">paths</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-130-1" name="__codelineno-130-1" href="#__codelineno-130-1"></a><span class="nx">SetUploadFileOrFolder</span><span class="w"> </span><span class="p">(</span><span class="nx">paths</span><span class="p">);</span>
 </code></pre></div>
 </details>
 <details class="abstract" open="open">
@@ -4169,11 +4290,11 @@
 </details>
 <details class="example" open="open">
 <summary>Example</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-127-1">1</a></span>
-<span class="normal"><a href="#__codelineno-127-2">2</a></span>
-<span class="normal"><a href="#__codelineno-127-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-127-1" name="__codelineno-127-1"></a><span class="nx">SetUploadFileOrFolder</span><span class="p">(</span><span class="s2">&quot;C:\\test.txt&quot;</span><span class="p">);</span>
-<a id="__codelineno-127-2" name="__codelineno-127-2"></a><span class="nx">SetUploadFileOrFolder</span><span class="p">(</span><span class="s2">&quot;C:\\myfiles&quot;</span><span class="p">);</span>
-<a id="__codelineno-127-3" name="__codelineno-127-3"></a><span class="nx">SetUploadFileOrFolder</span><span class="p">([</span><span class="s2">&quot;C:\\test_1.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;C:\\test_2.txt&quot;</span><span class="p">]);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-131-1">1</a></span>
+<span class="normal"><a href="#__codelineno-131-2">2</a></span>
+<span class="normal"><a href="#__codelineno-131-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-131-1" name="__codelineno-131-1"></a><span class="nx">SetUploadFileOrFolder</span><span class="p">(</span><span class="s2">&quot;C:\\test.txt&quot;</span><span class="p">);</span>
+<a id="__codelineno-131-2" name="__codelineno-131-2"></a><span class="nx">SetUploadFileOrFolder</span><span class="p">(</span><span class="s2">&quot;C:\\myfiles&quot;</span><span class="p">);</span>
+<a id="__codelineno-131-3" name="__codelineno-131-3"></a><span class="nx">SetUploadFileOrFolder</span><span class="p">([</span><span class="s2">&quot;C:\\test_1.txt&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;C:\\test_2.txt&quot;</span><span class="p">]);</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="getcurrentdir">GetCurrentDir<a class="headerlink" href="#getcurrentdir" title="Permanent link">#</a></h2>
@@ -4183,12 +4304,12 @@
 <p>Returns the current path that 9Hits App is running.</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-128-1" name="__codelineno-128-1" href="#__codelineno-128-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">GetCurrentDir</span><span class="w"> </span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-132-1" name="__codelineno-132-1" href="#__codelineno-132-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">GetCurrentDir</span><span class="w"> </span><span class="p">();</span>
 </code></pre></div>
 </details>
 <details class="example" open="open">
 <summary>Example</summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-129-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-129-1" name="__codelineno-129-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">GetCurrentDir</span><span class="w"> </span><span class="p">();</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-133-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-133-1" name="__codelineno-133-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">GetCurrentDir</span><span class="w"> </span><span class="p">();</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="admonition tip">
