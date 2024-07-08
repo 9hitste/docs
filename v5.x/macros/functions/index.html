@@ -2559,7 +2559,7 @@
 <p><img alt="Get CaptureElement" src="../../imgs/capture-element.png" /></p>
 </details>
 <h2 id="evalscript">EvalScript<a class="headerlink" href="#evalscript" title="Permanent link">#</a></h2>
-<p>Execute javascript code on the website and return value.</p>
+<p>Execute javascript code on the website and return value. Please note returned data can only be primitive data types or simple objects.</p>
 <details class="info" open="open">
 <summary>Syntax</summary>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">EvalScript</span><span class="w"> </span><span class="p">(</span><span class="nx">jsCode</span><span class="p">,</span><span class="w"> </span><span class="nx">frameSearch</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">frameSearchType</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">);</span>
@@ -2595,10 +2595,14 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1">1</a></span>
 <span class="normal"><a href="#__codelineno-42-2">2</a></span>
 <span class="normal"><a href="#__codelineno-42-3">3</a></span>
-<span class="normal"><a href="#__codelineno-42-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">WaitForLoading</span><span class="p">();</span>
-<a id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">EvalScript</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;window.location&#39;</span><span class="p">);</span>
-<a id="__codelineno-42-3" name="__codelineno-42-3"></a><span class="nx">loc</span><span class="p">.</span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;https://9hits.com&quot;</span><span class="p">;</span>
-<a id="__codelineno-42-4" name="__codelineno-42-4"></a><span class="nx">Log</span><span class="p">(</span><span class="nx">loc</span><span class="p">);</span>
+<span class="normal"><a href="#__codelineno-42-4">4</a></span>
+<span class="normal"><a href="#__codelineno-42-5">5</a></span>
+<span class="normal"><a href="#__codelineno-42-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="k">await</span><span class="w"> </span><span class="nx">WaitForLoading</span><span class="p">();</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">r1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">EvalScript</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;(5+4) + &quot;hits&quot;&#39;</span><span class="p">);</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3"></a><span class="c1">//r1 =  {&quot;result&quot;:&quot;9hits&quot;}</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4"></a>
+<a id="__codelineno-42-5" name="__codelineno-42-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">r2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">EvalScript</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;null[0]&#39;</span><span class="p">);</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6"></a><span class="c1">//r2 = {&quot;error&quot;:&quot;TypeError: Cannot read properties of null (reading &#39;0&#39;)&quot;}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <h2 id="generatexpath">GenerateXpath<a class="headerlink" href="#generatexpath" title="Permanent link">#</a></h2>
