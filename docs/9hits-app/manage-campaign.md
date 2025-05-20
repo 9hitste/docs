@@ -140,8 +140,11 @@ Prevent the viewer from loading ads from a specific network, Eg: you dont want t
 #### Web Security
 Enable/Disable Web Security (same-origin policy)
 
+#### Bypass Cloudflare
+Fix stuck issue on websites with Cloudflare integration (Available on v5 and later).
+
 #### Enable SimilarWeb
-Enable SimilarWeb extension (Available on v5 and later)
+Enable SimilarWeb extension (Available on v5 and later). <strong style="color: red">Please note, when this option is enabled, your setting for the Platform option will be ignored and forced to 100% Fixed</strong>
 
 #### Viewer Version
 Filter traffic from which 9Hits App version

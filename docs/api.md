@@ -146,6 +146,11 @@ GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY[&page=1&limit=100&filte
                     "socks5",
                     "ssh"
                 ],
+                "ipTypes": [
+                    "R",
+                    "B",
+                    "V"
+                ],
                 "connectionSpeed": "slow+",
                 "performance": "slow+",
                 "geo": {
@@ -281,6 +286,7 @@ GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY[&page=1&limit=100&filte
                 "adSafe": "google-ads",
                 "webSecurity": false,
                 "similarWebEnabled": true,
+                "bypassCf": true,
                 "viewerVersion": "all",
                 "userState": "running",
                 "systemState": "approved"
@@ -380,6 +386,11 @@ POST https://panel.9hits.com/api/siteAdd?key=YOUR_API_KEY
             "socks4",
             "socks5",
             "ssh"
+        ],
+        "ipTypes": [
+            "R",
+            "B",
+            "V"
         ],
         "connectionSpeed": "medium+", //slow+, good+
         "performance": "medium+", //slow+, good+
@@ -505,6 +516,7 @@ POST https://panel.9hits.com/api/siteAdd?key=YOUR_API_KEY
         "adSafe": "google-ads", //can be empty
         "webSecurity": false,
         "similarWebEnabled": true,
+        "bypassCf": true,
         "viewerVersion": "all",
         "userState": "running" //paused
     }

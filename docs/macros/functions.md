@@ -226,8 +226,6 @@ Simulate moving the mouse to a random position.
     | `modifiers`       | Valid values: WITH_ALT, WITH_CTRL, WITH_COMMAND, WITH_SHIFT.  |
     | `button`       | Pressed mouse button: none, left, right, middle.  |
 
-    ![Coordinates](../imgs/coordinates.png)
-
 ???+ example "Example"
     ``` js linenums="1"
     await WaitForLoading();
@@ -408,8 +406,9 @@ Click on an element based on its tag name.
 
 ???+ example "Example"
     ``` js linenums="1"
-    await ClickByXpath("/html/body/div/div[1]/div/ul/li[6]/a/div[1]/span");
-    await ClickByXpath(GenerateXpath("a", "href", "https://9hits.com%"));
+    await ClickByTag("iframe");
+    await ClickByTag("iframe", 1);
+    await ClickByTag("div", 0, 2);//double click
     ```
 
 ## ClickByClass 
@@ -1404,7 +1403,7 @@ Scroll the browser to the specified coordinates.
     await ScrollTo(0, 1000);
     await ScrollTo(0, 0, true);
     ```
-    
+
 ## TabFocus  
 Focusing on the specified browser tab, macros will be executed on the focused tab after this function call.
 

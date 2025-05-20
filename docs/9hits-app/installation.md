@@ -8,8 +8,8 @@ Install the 9Hits application
 * CPU with one or more cores, 2GHz
 * At least 2G of RAM
 #### Software requirements:
-* Windows 7, Windows Server 2008 R2 or later (64 bit only)
-* Ubuntu Desktop 18.04+, Debian 10+ (64 bit only)
+* Windows 10, Windows Server 2012 R2 or later (64 bit only)
+* Ubuntu Desktop 20.04+, Debian 11+ (64 bit only)
 
 ## Installation
 Please login to the [panel](https://panel.9hits.com/user/profile) and get the download links, the 9Hits App is available on Windows and Linux.
