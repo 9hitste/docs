@@ -35,7 +35,7 @@ Time to view your website, up to 600 seconds
 You can set the user agent source usage rate as follows:
 
 * System: User-Agents are managed by the system, you can adjust the usage rate according to the Operating System and Browser below.
-* Fixed: Instead of randomly a user-agent for each view, each visitor (session) will generate and use a fixed desktop user agent. Please note that all fixed Aser-Agents are chrome on desktop!
+* Fixed: Instead of randomly a user-agent for each view, each visitor (session) will generate and use a fixed desktop user agent. Please note that all fixed User-Agents are chrome on desktop only!
 * Custom: Use [your custom User-Agent](user-agent.md).
 
 ![Platform](../imgs/ex-platform-option.png)
@@ -45,6 +45,9 @@ This is one of the unique features of 9Hits. It allows you to create interaction
 
 #### Connection Types
 The 9Hits App supports most types of proxies. This option allows you to filter visitors according to the type of proxy it is using, where the System is the real IP of the computer. It is recommended that you select them all.
+
+#### IP Types
+Filter traffic by ip types!
 
 #### Connection Speed
 Allows you to filter visitors according to their network connection speed

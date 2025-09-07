@@ -810,7 +810,7 @@ Same as EvalScript but execute a js code with an async function or a promise.
     ```
 
 ## GenerateXpath 
-Create xpath to target the element. You can combine this function with [ClickByXpath](#ClickByXpath), [SetByXpath](#setbyxpath) or any function that use xpath.
+Create xpath to target the element. You can combine this function with [ClickByXpath](#clickbyxpath), [SetByXpath](#setbyxpath) or any function that use xpath.
 
 ???+ info "Syntax"
     ``` js

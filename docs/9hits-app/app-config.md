@@ -73,3 +73,15 @@ By running the exchange mode, you can reach achievements based on the number of 
 When you reach any level, you need to press the `Claim` button to claim it
 !!! tip
     In addition, if you reach the top 3 position in the weekly leader-board, you will receive the corresponding reward. You can see the rankings at the [9Hits Panel](https://panel.9hits.com/).
+
+## Remote Control
+The remote control feature allows you to manage your 9Hits sessions remotely through the web panel. You can start, stop, and monitor your sessions from anywhere with an internet connection.
+
+To access remote control:
+1. Go to the [9Hits Panel](https://panel.9hits.com/)
+2. Navigate to the Remote Control section
+3. Use the machine notes you set during configuration to identify your machines
+4. Control your sessions remotely with start/stop commands
+
+!!! note
+    The machine note you set in the Global Settings is useful for identifying your machine on the remote control page.
