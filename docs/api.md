@@ -177,6 +177,10 @@ GET https://panel.9hits.com/api/siteGet?key=YOUR_API_KEY[&page=1&limit=100&filte
                     'type': "0",
                     'rules': "1.55.*,223.54.1.*,2001:2f:*"
                 },
+                "asnFilter": {
+                    "type": "0",
+                    "list": "AS1,AS2"
+                },
                 "hourlyLimit": {
                     "speed": "fast",
                     "hours": [
@@ -415,6 +419,10 @@ POST https://panel.9hits.com/api/siteAdd?key=YOUR_API_KEY
         'ipFilter': {
             'type': "0", //0: by session ip, 1: by machine ip, 2: by all
             'rules': "1.55.*,223.54.1.*,2001:2f:*"
+        },
+        "asnFilter": {
+            "type": "0", //0: None, 1: Only Selected, 2: Except Selected
+            "list": "AS1,AS2"
         },
         "hourlyLimit": {
             "speed": "fast", //slow
